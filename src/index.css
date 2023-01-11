@@ -9,7 +9,7 @@
 }
 
 .btn-primary-outline {
-  @apply bg-white rounded-full text-primary px-8 py-2;
+  @apply bg-none border border-primary rounded-full text-primary px-8 py-2;
 }
 
 .btn-hollow {

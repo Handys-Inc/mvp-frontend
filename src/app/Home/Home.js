@@ -21,7 +21,7 @@ function Home() {
 
       {/* Features  */}
       <div className="bg-secondary  flex justify-around px-20 py-20 items-center">
-        <div>
+        <div className="w-96">
           <div className="feature-icon">
             <img src={crown} alt="quality service" />
           </div>
@@ -31,7 +31,7 @@ function Home() {
             professionals today
           </p>
         </div>
-        <div>
+        <div className="w-96">
           <div className="feature-icon">
             <img src={shield} alt="shield" />
           </div>
@@ -40,7 +40,7 @@ function Home() {
             Get access to verified, top-rated, and trusted handypersons
           </p>
         </div>
-        <div>
+        <div className="w-96">
           <div className="feature-icon">
             <img src={smartphone} alt="smart phone" />
           </div>

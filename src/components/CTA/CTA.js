@@ -8,7 +8,7 @@ function CTA() {
         Join our community and take control of your income or find reliable
         professionals today
       </p>
-      <div>
+      <div className="mt-10">
         <button className="btn-white mr-5">Provide Services</button>
         <button className="btn-white-outline">Get Services</button>
       </div>
