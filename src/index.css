@@ -8,6 +8,18 @@
   @apply bg-primary rounded-full text-white px-8 py-2;
 }
 
+.btn-primary-outline {
+  @apply bg-white rounded-full text-primary px-8 py-2;
+}
+
 .btn-hollow {
   @apply bg-white;
+}
+
+.btn-white {
+  @apply bg-white rounded-full text-primary px-8 py-2;
+}
+
+.btn-white-outline {
+  @apply text-white bg-none border rounded-full  border-white px-8 py-2;
 }
