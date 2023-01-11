@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: " #CE1449",
+        secondary: "#EFE4D9",
+      },
+      backgroundImage: {
+        workerHero: "url('/src/assets/img/workers.png')",
+      },
+    },
   },
   plugins: [],
 };

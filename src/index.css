@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* GENERAL STYLES */
+
+.btn-primary {
+  @apply bg-primary rounded-full text-white px-8 py-2;
+}
+
+.btn-hollow {
+  @apply bg-white;
+}
