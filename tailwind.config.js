@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         primary: " #CE1449",
         secondary: "#EFE4D9",
+        gray: "#626262",
       },
       backgroundImage: {
         workerHero: "url('/src/assets/img/workers.png')",

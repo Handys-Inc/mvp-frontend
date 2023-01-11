@@ -5,6 +5,11 @@ import CTA from "../../components/CTA/CTA";
 import Footer from "../../components/Footer/Footer";
 import Header from "./components/Header";
 
+// svgs
+import crown from "../../assets/icons/crown.svg";
+import shield from "../../assets/icons/shield.svg";
+import smartphone from "../../assets/icons/smartphone.svg";
+
 function Home() {
   return (
     <div>
@@ -12,21 +17,34 @@ function Home() {
       <Header />
 
       {/* Features  */}
-      <div className="bg-secondary flex justify-around py-20 items-center">
+      <div className="bg-secondary  flex justify-around py-20 items-center">
         <div>
-          <h3>Quality Service</h3>
-          <p>
+          <div className="feature-icon">
+            <img src={crown} alt="quality service" />
+          </div>
+          <h3 className="text-xl font-semibold">Quality Service</h3>
+          <p className="font-light text-gray">
             Join our community and take control of your income or find reliable
             professionals today
           </p>
         </div>
         <div>
-          <h3>Secure and safe</h3>
-          <p>Get access to verified, top-rated, and trusted handypersons</p>
+          <div className="feature-icon">
+            <img src={shield} alt="shield" />
+          </div>
+          <h3 className="text-xl font-semibold">Secure and safe</h3>
+          <p className="font-light text-gray">
+            Get access to verified, top-rated, and trusted handypersons
+          </p>
         </div>
         <div>
-          <h3>Easy to use</h3>
-          <p>Get your home and work projects completed with a few clicks</p>
+          <div className="feature-icon">
+            <img src={smartphone} alt="smart phone" />
+          </div>
+          <h3 className="text-xl font-semibold">Easy to use</h3>
+          <p className="font-light text-gray">
+            Get your home and work projects completed with a few clicks
+          </p>
         </div>
       </div>
 

@@ -23,3 +23,9 @@
 .btn-white-outline {
   @apply text-white bg-none border rounded-full  border-white px-8 py-2;
 }
+
+/* Other */
+
+.feature-icon {
+  @apply rounded-full bg-primary bg-opacity-20 w-16 h-16 flex items-center justify-center mb-4;
+}
