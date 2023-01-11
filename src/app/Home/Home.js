@@ -9,15 +9,18 @@ import Header from "./components/Header";
 import crown from "../../assets/icons/crown.svg";
 import shield from "../../assets/icons/shield.svg";
 import smartphone from "../../assets/icons/smartphone.svg";
+import Guide from "./components/Guide";
 
 function Home() {
   return (
     <div>
       <Navbar />
+
+      {/* Header */}
       <Header />
 
       {/* Features  */}
-      <div className="bg-secondary  flex justify-around py-20 items-center">
+      <div className="bg-secondary  flex justify-around px-20 py-20 items-center">
         <div>
           <div className="feature-icon">
             <img src={crown} alt="quality service" />
@@ -48,7 +51,11 @@ function Home() {
         </div>
       </div>
 
+      {/* Guide */}
+      <Guide />
       <CTA />
+
+      {/* Footer */}
       <Footer />
     </div>
   );
