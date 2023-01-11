@@ -49,7 +49,10 @@ function Header() {
           </p>
           {view === "provide" ? (
             <form className="bg-white flex justify-between p-2 rounded-full">
-              <input className="" placeholder="Enter your email" />
+              <input
+                className="outline-none pl-10"
+                placeholder="Enter your email"
+              />
               <button className="btn-primary">Sign Up</button>
             </form>
           ) : (
