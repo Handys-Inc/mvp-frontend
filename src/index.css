@@ -94,3 +94,17 @@ input[type="number"] {
 .feature-icon {
   @apply rounded-full bg-primary bg-opacity-20 w-16 h-16 flex items-center justify-center mb-4;
 }
+
+.auth-icon {
+  @apply rounded-full bg-primary bg-opacity-20 w-14 h-14 flex items-center justify-center;
+}
+
+/* Authentication screens */
+
+.auth-center {
+  @apply flex items-center justify-center md:h-[90vh] mt-5 md:-mt-20;
+}
+
+.auth-option {
+  @apply flex w-full hover:border-primary border px-5 py-4 justify-between rounded-xl items-center border-[#DDDDDD];
+}
