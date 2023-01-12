@@ -27,7 +27,7 @@ function LogIn() {
           {/* options */}
           <div className="flex flex-col gap-5 mt-5 md:mt-10 mb-10">
             {/* Login As Client Option */}
-            <NavLink className="w-full" to="/signup/client">
+            <NavLink className="w-full" to="/login/client">
               <div className="auth-option">
                 <div className="flex gap-5 items-center">
                   <div className="auth-icon">
@@ -50,7 +50,7 @@ function LogIn() {
             </NavLink>
 
             {/* Login as Provider Option */}
-            <NavLink className="w-full" to="/signup/provider">
+            <NavLink className="w-full" to="/login/provider">
               <div className="auth-option">
                 <div className="flex gap-5 items-center">
                   <div className="auth-icon">

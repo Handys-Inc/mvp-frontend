@@ -102,9 +102,17 @@ input[type="number"] {
 /* Authentication screens */
 
 .auth-center {
-  @apply flex items-center justify-center md:h-[90vh] mt-5 md:-mt-20;
+  @apply flex items-center justify-center md:h-[90vh] mt-5 md:-mt-16;
 }
 
 .auth-option {
   @apply flex w-full hover:border-primary border px-5 py-4 justify-between rounded-xl items-center border-[#DDDDDD];
+}
+
+.auth-input {
+  @apply w-full border border-gray rounded-md px-2 py-3;
+}
+
+.auth-social-btn {
+  @apply w-full border  border-black px-3 rounded-md my-2 py-3;
 }
