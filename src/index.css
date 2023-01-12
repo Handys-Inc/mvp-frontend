@@ -70,11 +70,11 @@ input[type="number"] {
 
 /* GENERAL STYLES */
 .btn-primary {
-  @apply bg-primary rounded-full text-white px-8 py-3;
+  @apply bg-primary rounded-full text-white px-5 md:px-8 py-2 md:py-3 text-sm md:text-base;
 }
 
 .btn-primary-outline {
-  @apply bg-none border border-primary rounded-full text-primary px-8 py-3;
+  @apply bg-none border border-primary rounded-full text-primary px-5 md:px-8 py-2 md:py-3 text-sm md:text-base;
 }
 
 .btn-hollow {
@@ -82,11 +82,11 @@ input[type="number"] {
 }
 
 .btn-white {
-  @apply bg-white rounded-full text-primary px-8 py-3;
+  @apply bg-white rounded-full text-primary px-5 md:px-8 py-2 md:py-3 text-sm md:text-base  font-semibold;
 }
 
 .btn-white-outline {
-  @apply text-white bg-none border rounded-full  border-white px-8 py-3;
+  @apply text-white bg-none border rounded-full font-semibold  border-white px-5 md:px-8 py-2 md:py-3 text-sm md:text-base;
 }
 
 /* Other */

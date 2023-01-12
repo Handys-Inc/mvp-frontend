@@ -12,8 +12,8 @@ import { TbWorld } from "react-icons/tb";
 import { IoLocation } from "react-icons/io5";
 function Footer() {
   return (
-    <div className="py-10 px-20 mx-auto">
-      <div className="flex justify-between">
+    <div className="py-10 px-5 md:px-20 mx-auto">
+      <div className="flex flex-col md:flex-row justify-between">
         <div className="flex gap-10">
           <a href="#">
             <BsFacebook />
@@ -31,18 +31,19 @@ function Footer() {
             <BsInstagram />
           </a>
         </div>
-        <div className="flex gap-5">
-          <div>
-            <TbWorld className="inline-block mr-1" /> English
+        <div className="flex items-center gap-5 mt-10 md:mt-0">
+          <div className="flex items-center">
+            <TbWorld size={24} className="inline-block mr-1" />
+            <span>English</span>
           </div>
-          <div>
-            <IoLocation className="inline-block mr-1" /> Kamloops
+          <div className="flex items-center">
+            <IoLocation size={24} className="inline-block mr-1" /> Kamloops
           </div>
         </div>
       </div>
-      <div className="mt-20 flex justify-between">
+      <div className="mt-16 md:mt-20 text-sm flex flex-col md:flex-row justify-between text-gray">
         <p>© 2023 Handys Inc.</p>
-        <div>
+        <div className="mt-10 md:mt-0 text-gray">
           <ul>
             <li className="inline-block mr-5">Privacy</li>
             <li className="inline-block mr-5">Accessibility</li>
