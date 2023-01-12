@@ -1,9 +1,74 @@
+/* CUSTOM FONTS */
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Light.woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Regular.woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Medium.woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Bold.woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Black.woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* RESETS */
+html {
+  scroll-behavior: smooth;
+}
+
+/* remove outline from all inputs  */
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+/* remove arrows from number input*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* TAILWIND */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* GENERAL STYLES */
-
 .btn-primary {
   @apply bg-primary rounded-full text-white px-8 py-2;
 }

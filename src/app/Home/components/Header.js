@@ -29,7 +29,7 @@ function Header() {
 
         {/* Other part */}
         <div className="">
-          <h2 className="text-5xl my-5">
+          <h2 className="text-5xl font-semibold my-5">
             {view === "provide" && (
               <span>
                 {" "}
