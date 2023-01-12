@@ -10,12 +10,12 @@ function SignUp() {
       <p className="font-light text-xl text-gray mb-5">
         Find work that fits your skills and schedule
       </p>
-      <div className="relative">
+      <div className="relative flex items-center">
         <input
-          className="outline-none py-3 md:py-4 rounded-full w-full pl-10"
+          className="outline-none py-3 md:py-4 rounded-full w-full pl-5"
           placeholder="Enter your email"
         />
-        <button className="btn-primary absolute right-2 top-[0.3rem] md:top-1">
+        <button className="btn-primary absolute right-2 md:right-1">
           Sign Up
         </button>
       </div>

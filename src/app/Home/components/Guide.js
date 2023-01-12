@@ -36,7 +36,7 @@ function Guide() {
           need, no matter where you are.
         </p>
         <button className="mt-10 text-primary font-semibold">
-          Read Help Guide <BsArrowRight className="ml-2 inline-block" />
+          View all cities <BsArrowRight className="ml-2 inline-block" />
         </button>
       </div>
     </div>
