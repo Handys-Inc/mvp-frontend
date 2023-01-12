@@ -20,8 +20,8 @@ function Home() {
       <Header />
 
       {/* Features  */}
-      <div className="bg-secondary  flex justify-around px-20 py-20 items-center">
-        <div className="w-96">
+      <div className="bg-secondary flex flex-col md:flex-row justify-start md:justify-around px-20 py-5 md:py-20 items-center">
+        <div className="w-96 px-3 md:px-0">
           <div className="feature-icon">
             <img src={crown} alt="quality service" />
           </div>
@@ -31,7 +31,7 @@ function Home() {
             professionals today
           </p>
         </div>
-        <div className="w-96">
+        <div className="w-96 px-3 md:px-0 my-10 md:my-0">
           <div className="feature-icon">
             <img src={shield} alt="shield" />
           </div>
@@ -40,7 +40,7 @@ function Home() {
             Get access to verified, top-rated, and trusted handypersons
           </p>
         </div>
-        <div className="w-96">
+        <div className="w-96 px-3 md:px-0">
           <div className="feature-icon">
             <img src={smartphone} alt="smart phone" />
           </div>
@@ -53,6 +53,8 @@ function Home() {
 
       {/* Guide */}
       <Guide />
+
+      {/* CTA */}
       <CTA />
 
       {/* Footer */}
