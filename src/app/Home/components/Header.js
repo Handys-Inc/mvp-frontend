@@ -16,10 +16,17 @@ import Search from "./Search";
 import "./index.css";
 
 function Header() {
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
   return (
-    <div className="bg-none md:bg-workerHero md:min-h-[80vh] bg-no-repeat bg-cover flex flex-col md:flex-row items-center md:px-20 mx-auto">
+    <div
+      className={
+        selectedIndex === 1
+          ? "md:bg-womanHero md:min-h-[80vh] bg-no-repeat bg-cover flex flex-col md:flex-row items-center md:px-20 mx-auto"
+          : "md:bg-workerHero md:min-h-[80vh] bg-no-repeat bg-cover flex flex-col md:flex-row items-center md:px-20 mx-auto"
+      }
+    >
       <div className="bg-secondary md:rounded-2xl w-full md:w-[35rem] md:h-[25rem]">
-        <Tab.Group>
+        <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
           <div class="border-b border-white">
             <Tab.List class="flex flex-wrap justify-around -mb-px pt-4">
               <Tab as={Fragment}>
@@ -53,16 +60,6 @@ function Header() {
                   </button>
                 )}
               </Tab>
-              {/* <li class="mr-2">
-                <span class=" hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
-                  Profile
-                </span>
-              </li>
-              <li class="mr-2">
-                <span class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active ">
-                  Dashboard
-                </span>
-              </li> */}
             </Tab.List>
           </div>
           <Tab.Panels className="px-5 md:px-10">
@@ -81,7 +78,13 @@ function Header() {
     
       </Tab.Group> */}
 
-      <div className="block md:hidden  w-full bg-secondary bg-workerHero h-[22rem] bg-cover bg-center">
+      <div
+        className={
+          selectedIndex === 1
+            ? "block md:hidden  w-full bg-secondary bg-womanHero h-[22rem] bg-cover bg-center"
+            : "block md:hidden  w-full bg-secondary bg-workerHero h-[22rem] bg-cover bg-center"
+        }
+      >
         {/* <img src={man} alt="workers" className="w-full h-[20rem]" /> */}
       </div>
     </div>
