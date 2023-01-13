@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
 // icons
 import { BsArrowRight } from "react-icons/bs";
 
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ProviderSignUp() {
+  const [email, setEmail] = useState("");
+
+  const navigate = useNavigate();
+
+  const validate = () => {
+    navigate(`/auth/provider/validate/${email}`, { replace: true });
+  };
+
   return (
     <div className="bg-lightGray h-screen">
       <Navbar />
@@ -22,12 +30,32 @@ function ProviderSignUp() {
 
           {/* details */}
           <div className="my-5">
-            <input
-              type="text"
-              placeholder="Enter your email or phone number"
-              className="auth-input"
-            />
-            <button className="btn-primary w-full my-5">Continue</button>
+            <form
+              disabled={email.length < 5}
+              onSubmit={(e) => {
+                e.preventDefault();
+                validate();
+              }}
+            >
+              {" "}
+              <input
+                type="text"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                placeholder="Enter your email or phone number"
+                className="auth-input"
+              />
+            </form>
+
+            <button
+              disabled={email.length < 5}
+              onClick={() => {
+                validate();
+              }}
+              className="btn-primary w-full my-5"
+            >
+              Continue
+            </button>
             <p className="text-xs font-light text-gray my-5 text-center">
               {" "}
               By proceeding, you consent to get calls, WhatsApp or SMS messages,
