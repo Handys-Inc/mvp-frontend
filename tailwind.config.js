@@ -18,6 +18,7 @@ module.exports = {
       },
       backgroundImage: {
         workerHero: "url('/src/assets/img/workers.png')",
+        womanHero: "url('/src/assets/img/woman.png')",
       },
     },
   },
