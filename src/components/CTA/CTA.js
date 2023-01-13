@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function CTA() {
   return (
@@ -11,8 +12,12 @@ function CTA() {
         professionals today
       </p>
       <div className="mt-5 mx-5 md:mx-0 md:mt-10 ">
-        <button className="btn-white mr-5">Provide Services</button>
-        <button className="btn-white-outline">Get Services</button>
+        <NavLink to="/signup/provider">
+          <button className="btn-white mr-5">Provide Services</button>
+        </NavLink>
+        <NavLink to="/signup/client">
+          <button className="btn-white-outline">Get Services</button>
+        </NavLink>
       </div>
     </div>
   );
