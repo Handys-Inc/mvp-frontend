@@ -13,6 +13,8 @@ import ProviderSignUp from "./app/Auth/Provider/ProviderSignUp";
 import ProviderLogin from "./app/Auth/Provider/ProviderLogin";
 import ClientLogin from "./app/Auth/Client/ClientLogin";
 import Validate from "./app/Auth/Validate/Validate";
+import ForgotPassword from "./app/Auth/Forgot/ForgotPassword";
+import Reset from "./app/Auth/Reset/Reset";
 
 function App() {
   return (
@@ -34,6 +36,9 @@ function App() {
 
         {/* Auth validation */}
         <Route path="/auth/validate/:id" exact element={<Validate />} />
+
+        <Route path="/forgot-password" exact element={<ForgotPassword />} />
+        <Route path="/reset-password" exact element={<Reset />} />
 
         {/* Specific Auth Routes: Provider */}
 
