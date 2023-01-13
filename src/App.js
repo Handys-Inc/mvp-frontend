@@ -15,6 +15,7 @@ import ClientLogin from "./app/Auth/Client/ClientLogin";
 import Validate from "./app/Auth/Validate/Validate";
 import ForgotPassword from "./app/Auth/Forgot/ForgotPassword";
 import Reset from "./app/Auth/Reset/Reset";
+import ProviderFlow from "./app/Auth/Provider/ProviderFlow";
 
 function App() {
   return (
@@ -33,6 +34,11 @@ function App() {
         {/* Specific Auth Routes Provider */}
         <Route path="/signup/provider" exact element={<ProviderSignUp />} />
         <Route path="/login/provider" exact element={<ProviderLogin />} />
+        <Route
+          path="/auth/provider/validate/:id"
+          exact
+          element={<ProviderFlow />}
+        />
 
         {/* Auth validation */}
         <Route path="/auth/validate/:id" exact element={<Validate />} />
