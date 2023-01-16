@@ -106,7 +106,7 @@ input[type="number"] {
 /* Authentication screens */
 
 .auth-center {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center h-[90vh] md:h-auto;
 }
 
 .auth-option {

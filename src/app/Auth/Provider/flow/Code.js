@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Navbar from "../../../../components/Navbar/Navbar";
+import logo from "../../../../assets/logo/logo.svg";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
@@ -10,10 +10,9 @@ function Code({ step, setStep }) {
   const { id } = useParams();
   return (
     <div className="bg-lightGray h-screen">
-      <Navbar />
-      <div className="text-mute block md:hidden mt-2">
-        <hr />
-      </div>
+      <NavLink to="/">
+        <img className="mt-2 mx-2 w-20 md:w-28" src={logo} alt="logo" />
+      </NavLink>
 
       <div className="auth-center">
         <div className="bg-lightGray md:bg-white md:shadow-md w-full md:w-[38rem] rounded-2xl md:p-10 p-2">
