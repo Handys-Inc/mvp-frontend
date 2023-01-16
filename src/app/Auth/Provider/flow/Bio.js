@@ -2,15 +2,16 @@ import React from "react";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
-import Navbar from "../../../../components/Navbar/Navbar";
+import { NavLink } from "react-router-dom";
+
+import logo from "../../../../assets/logo/logo.svg";
 
 function Bio({ step, setStep }) {
   return (
     <div className="bg-lightGray h-screen">
-      <Navbar />
-      <div className="text-mute block md:hidden mt-2">
-        <hr />
-      </div>
+      <NavLink to="/">
+        <img className="mt-2 mx-2 w-20 md:w-28" src={logo} alt="logo" />
+      </NavLink>
 
       <div className="auth-center">
         <div className="bg-lightGray md:bg-white md:shadow-md w-full md:w-[38rem] rounded-2xl md:p-10 p-2">
