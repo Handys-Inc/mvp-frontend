@@ -45,9 +45,9 @@ function Footer() {
         <p>© 2023 Handys Inc.</p>
         <div className="mt-10 md:mt-0 text-gray">
           <ul>
-            <li className="inline-block mr-5">Privacy</li>
-            <li className="inline-block mr-5">Accessibility</li>
-            <li className="inline-block">Terms</li>
+            <li className="inline-block mr-5 cursor-pointer">Help Center</li>
+            <li className="inline-block mr-5 cursor-pointer">Privacy</li>
+            <li className="inline-block cursor-pointer">Terms</li>
           </ul>
         </div>
       </div>
