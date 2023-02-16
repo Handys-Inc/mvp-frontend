@@ -10,6 +10,7 @@ import {
 
 import { TbWorld } from "react-icons/tb";
 import { IoLocation } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 function Footer() {
   return (
     <div className="py-10 px-5 md:px-20 mx-auto">
@@ -45,7 +46,10 @@ function Footer() {
         <p>© 2023 Handys Inc.</p>
         <div className="mt-10 md:mt-0 text-gray">
           <ul>
-            <li className="inline-block mr-5 cursor-pointer">Help Center</li>
+            <NavLink to="help">
+              <li className="inline-block mr-5 cursor-pointer">Help Center</li>
+            </NavLink>
+
             <li className="inline-block mr-5 cursor-pointer">Privacy</li>
             <li className="inline-block cursor-pointer">Terms</li>
           </ul>
