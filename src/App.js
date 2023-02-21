@@ -17,6 +17,13 @@ import ForgotPassword from "./app/Auth/Forgot/ForgotPassword";
 import Reset from "./app/Auth/Reset/Reset";
 import ProviderFlow from "./app/Auth/Provider/ProviderFlow";
 
+// HELP CENTER
+import HelpCenter from "./help/HelpCenter";
+import Customer from "./help/customer/Customer";
+import HelpLayout from "./help/layout/HelpLayout";
+import Provider from "./help/provider/Provider";
+import CustomerCategory from "./help/customer/CustomerCategory";
+
 function App() {
   return (
     <BrowserRouter>
@@ -46,7 +53,16 @@ function App() {
         <Route path="/forgot-password" exact element={<ForgotPassword />} />
         <Route path="/reset-password" exact element={<Reset />} />
 
-        {/* Specific Auth Routes: Provider */}
+        {/* TODO: HELP CENTER ROUTES */}
+        <Route path="/help" element={<HelpLayout />}>
+          <Route index element={<HelpCenter />} />
+          {/* Customers */}
+          <Route path="customer" element={<Customer />} />
+          <Route path="customer/:id" element={<CustomerCategory />} />
+
+          {/* Provider */}
+          <Route path="provider/:id" element={<Provider />} />
+        </Route>
 
         {/* PAGE NOT FOUND */}
         <Route path="*" exact element={<Notfound />} />
