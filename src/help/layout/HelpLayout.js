@@ -1,18 +1,34 @@
+
 import React from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet} from "react-router-dom";
+import Border from "../../components/Border/Border";
+
+
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+// import { IoLocation } from "react-icons/io5";
 
 function HelpLayout() {
+  const sampleData = [
+    { title: "hello world", content: "hiii", type: "customer" },
+    { title: "hello world", content: "hiii", type: "customer" },
+    { title: "hello world", content: "hiii", type: "customer" },
+  ];
+
+   
+
   return (
     <div className="min-h-screen w-full">
-      <nav className="bg-primary text-white p-10">
-        <NavLink to="/help">Main Help Center</NavLink>
-        <NavLink to="customer">Customers</NavLink>
-        <NavLink to="provider/4">Provider test</NavLink>
-      </nav>
+    <Header/>
+<div className="px-5 mx-auto min-h-[70vh]">
+ <Outlet context={sampleData} />
+</div>
+     
 
-      <Outlet />
-
-      <footer>Footer here</footer>
+      <Border />
+     <Footer/>
     </div>
   );
 }

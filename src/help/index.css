@@ -1,0 +1,7 @@
+.active-tab {
+  @apply inline-flex p-4 text-black border-b-2 border-black  focus:outline-none;
+}
+
+.inactive-tab {
+  @apply inline-flex p-4 text-gray border-b-2 border-none;
+}
