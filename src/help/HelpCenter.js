@@ -3,13 +3,17 @@ import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
 import Search from "./layout/components/Search";
 
-
 import Customer from "./customer/Customer";
 import Provider from "./provider/Provider";
 
 import "./index.css";
 
 function HelpCenter() {
+  // scroll to top
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   return (

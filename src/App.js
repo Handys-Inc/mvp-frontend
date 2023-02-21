@@ -22,6 +22,7 @@ import HelpCenter from "./help/HelpCenter";
 import Customer from "./help/customer/Customer";
 import HelpLayout from "./help/layout/HelpLayout";
 import Provider from "./help/provider/Provider";
+import CustomerCategory from "./help/customer/CustomerCategory";
 
 function App() {
   return (
@@ -55,7 +56,11 @@ function App() {
         {/* TODO: HELP CENTER ROUTES */}
         <Route path="/help" element={<HelpLayout />}>
           <Route index element={<HelpCenter />} />
+          {/* Customers */}
           <Route path="customer" element={<Customer />} />
+          <Route path="customer/:id" element={<CustomerCategory />} />
+
+          {/* Provider */}
           <Route path="provider/:id" element={<Provider />} />
         </Route>
 

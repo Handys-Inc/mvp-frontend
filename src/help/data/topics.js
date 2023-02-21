@@ -6,9 +6,9 @@ import payment from "../assets/images/payment.png";
 import tips from "../assets/images/tips.png";
 
 export const topics = [
-  { id: 1, image: getting, title: "Getting Started" },
-  { id: 2, image: trouble, title: "Troubleshooting" },
-  { id: 3, image: payment, title: "Payment and Billing" },
-  { id: 4, image: tips, title: "Tips and Tricks" },
-  { id: 5, image: legal, title: "Legal and Policies" },
+  { id: 1, image: getting, slug: "getting-started", title: "Getting Started" },
+  { id: 2, image: trouble, slug: "troubleshooting", title: "Troubleshooting" },
+  { id: 3, image: payment, slug: "payments-and-billing", title: "Payment and Billing" },
+  { id: 4, image: tips, slug: "tips-and-tricks", title: "Tips and Tricks" },
+  { id: 5, image: legal, slug: "legal-and-policies", title: "Legal and Policies" },
 ];
