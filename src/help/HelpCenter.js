@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 
 import { Tab } from "@headlessui/react";
 import Search from "./layout/components/Search";
+import { useOutletContext } from "react-router-dom";
 
 import Customer from "./customer/Customer";
 import Provider from "./provider/Provider";
@@ -14,11 +15,14 @@ function HelpCenter() {
     window.scrollTo(0, 0);
   }, []);
 
+  //. articles
+  const data = useOutletContext();
+
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   return (
     <div>
-      <Search />
+      <Search articles={data} />
 
       <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
         <div class="border-b border-[#99989821] border-opacity-20">

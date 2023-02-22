@@ -1,17 +1,6 @@
 export const articles = [
-  // TOP ARTICLES FOR CUSTOMER
+  // CUSTOMER
 
-  {
-    id: 96,
-    top: true,
-    category: "customer",
-    title: "Cancellation and Refund Policy",
-    slug: "cancellation-and-refund-policy",
-    area: "payments and billing",
-    shortDesc:
-      "Need to make a change or two? You can edit your account settings, as well as some information on your public profile...",
-    content: null,
-  },
   // TROUBLESHOOTING
   {
     id: 56,
@@ -159,6 +148,17 @@ export const articles = [
     shortDesc: "No content yet",
     content: <div>No content for this article yet</div>,
   },
+  {
+    id: 96,
+    top: true,
+    category: "customer",
+    title: "Cancellation and Refund Policy",
+    slug: "cancellation-and-refund-policy",
+    area: "payments and billing",
+    shortDesc:
+      "Need to make a change or two? You can edit your account settings, as well as some information on your public profile...",
+    content: null,
+  },
 
   // TIPS AND TRICKS
   {
@@ -234,7 +234,7 @@ export const articles = [
     content: <div>No content for this article yet</div>,
   },
 
-  // TOP ARTICLES FOR PROVIDER
+  // PROVIDER
 
-  // ARTICLES FOR PROVIDER
+  // TROUBLESHOOTING
 ];

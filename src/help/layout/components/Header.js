@@ -29,11 +29,7 @@ function Header() {
   return (
     <div className="block  z-30">
       <div className="flex flex-row justify-between items-center px-5 pt-5 pb-0 md:pb-3">
-        {current === "/help" ? (
-          <NavLink to="/help">
-            <p className="text-2xl font-bold"> Help Center</p>
-          </NavLink>
-        ) : (
+        <div className="flex items-center gap-2">
           <NavLink to="/">
             <img
               className="hidden md:block w-20 md:w-28"
@@ -41,7 +37,10 @@ function Header() {
               alt="Logo"
             />
           </NavLink>
-        )}
+          <NavLink to="/help">
+            <p className="text-2xl font-bold">| Help Center</p>
+          </NavLink>
+        </div>
 
         {/* Links */}
 
