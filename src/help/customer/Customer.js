@@ -37,7 +37,7 @@ function Customer() {
           .map((article) => {
             return (
               <div id={article.id}>
-                <NavLink to={`customer/article/${article.slug}`}>
+                <NavLink to={`article/${article.slug}`}>
                   <h4 className="font-bold mb-1 cursor-pointer hover:text-primary underline underline-offset-4 text-lg">
                     {article.title}
                   </h4>

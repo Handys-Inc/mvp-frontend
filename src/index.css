@@ -93,6 +93,10 @@ input[type="number"] {
   @apply text-white bg-none border rounded-full font-semibold  border-white px-5 md:px-8 py-2 md:py-3 text-sm md:text-base;
 }
 
+.btn-black-outline {
+  @apply text-black bg-none border rounded-full font-semibold  border-black px-5 md:px-8 py-2 md:py-3 text-sm md:text-base;
+}
+
 /* Other */
 
 .feature-icon {
