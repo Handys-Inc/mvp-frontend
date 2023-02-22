@@ -5,3 +5,7 @@
 .inactive-tab {
   @apply inline-flex p-4 text-gray border-b-2 border-none;
 }
+
+.helped {
+  @apply mx-2 underline underline-offset-4 hover:text-primary cursor-pointer text-gray;
+}

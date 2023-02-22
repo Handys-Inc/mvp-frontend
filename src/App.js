@@ -23,6 +23,7 @@ import Customer from "./help/customer/Customer";
 import HelpLayout from "./help/layout/HelpLayout";
 import Provider from "./help/provider/Provider";
 import CustomerCategory from "./help/customer/CustomerCategory";
+import Article from "./help/article/Article";
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
 
           {/* Provider */}
           <Route path="provider/:id" element={<Provider />} />
+
+          {/* Articles */}
+          <Route path="article/:slug" element={<Article />} />
         </Route>
 
         {/* PAGE NOT FOUND */}
