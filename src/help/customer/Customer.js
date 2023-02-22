@@ -14,7 +14,7 @@ function Customer() {
       <div className="grid grid-cols-5 gap-5 w-full">
         {topics.map((topic) => {
           return (
-            <NavLink to={`customer/${topic.slug}`}>
+            <NavLink to={`customer/${topic.area}`}>
               <div key={topic.id}>
                 <img
                   className="object-cover"

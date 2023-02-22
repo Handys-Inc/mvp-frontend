@@ -9,6 +9,11 @@ import GetInTouch from "./GetInTouch";
 import Border from "../../components/Border/Border";
 
 function Article() {
+  // scroll to top
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const data = useOutletContext();
 
   const { slug } = useParams();
@@ -21,7 +26,7 @@ function Article() {
   useEffect(() => {
     setSelectArticle(data.filter((article) => article.slug === slug));
     setChange(!change);
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     if (selectArticle) {
