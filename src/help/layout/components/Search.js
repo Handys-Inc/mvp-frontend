@@ -35,9 +35,9 @@ function Search({ articles }) {
             className="appearance-none w-full flex-1"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search topics and keywords eg.receipt"
+            placeholder="Search topics and keywords eg.payment"
           />
-          <div className="bg-primary h-10 w-10 flex items-center justify-center rounded-full text-white">
+          <div className="bg-primary h-10 cursor-pointer hover:bg-opacity-90 w-10 flex items-center justify-center rounded-full text-white">
             <FiSearch size={20} />
           </div>
         </div>
