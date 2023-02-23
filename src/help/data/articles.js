@@ -1,5 +1,5 @@
 export const articles = [
-  // CUSTOMER
+  //?  CUSTOMER ARTICLES |||||||||||||
 
   // TROUBLESHOOTING
 
@@ -284,7 +284,7 @@ export const articles = [
   // searching and booking
   {
     id: 445,
-    top: false,
+    top: true,
     category: "customer",
     title: "Searching and Booking Services",
     area: "getting started",
@@ -329,17 +329,17 @@ export const articles = [
     ),
   },
   // how to manage your account
-  {
-    id: 46,
-    top: true,
-    category: "customer",
-    title: "How to Manage Your Account",
-    slug: "how-to-manage-your-account",
-    area: "getting started",
-    shortDesc:
-      "Need to make a change or two? You can edit your account settings, as well as some information on your public profile...",
-    content: null,
-  },
+  // {
+  //   id: 46,
+  //   top: true,
+  //   category: "customer",
+  //   title: "How to Manage Your Account",
+  //   slug: "how-to-manage-your-account",
+  //   area: "getting started",
+  //   shortDesc:
+  //     "Need to make a change or two? You can edit your account settings, as well as some information on your public profile...",
+  //   content: null,
+  // },
 
   // Payments and billing
 
@@ -534,6 +534,42 @@ export const articles = [
       </div>
     ),
   },
+  {
+    id: 41495,
+    top: false,
+    category: "customer",
+    title: "Tips",
+    area: "payments and billing",
+    slug: "tips",
+    shortDesc:
+      "At Handys, we believe in recognizing and rewarding great work. That's why we offer our customers the option to send an optional financial contribution to service providers after completing a task.",
+    content: (
+      <div>
+        <br />
+        At Handys, we believe in recognizing and rewarding great work. That's
+        why we offer our customers the option to send an optional financial
+        contribution to service providers after completing a task.
+        <br />
+        <br />
+        If you're a service provider, you can choose to automatically allow or
+        decline future tips from customers. Simply go to your profile settings
+        and adjust your tip settings as you see fit.
+        <br />
+        <br />
+        Tips can be a great way to show your appreciation for a job well done,
+        and can provide a nice boost to your earnings. However, it's important
+        to note that they are entirely optional and not required for the
+        completion of a task.
+        <br />
+        <br />
+        As a service provider, it's important to continue providing excellent
+        service to maintain a high rating and positive reputation. Great work is
+        often rewarded with tips, so strive to consistently provide high-quality
+        work and excellent customer service.
+      </div>
+    ),
+  },
+
   // cancellation and refund policy
   {
     id: 96,
@@ -814,6 +850,7 @@ export const articles = [
       </div>
     ),
   },
+  // refund policy
   {
     id: 2394,
     top: false,
@@ -822,8 +859,46 @@ export const articles = [
     area: "legal and policies",
     slug: "refund-policy",
     shortDesc: "No content yet",
-    content: <div>No content for this article yet</div>,
+    content: (
+      <div>
+        <h2 className="article-header">Purpose</h2>
+        This Refund Policy outlines the circumstances under which a customer may
+        be eligible for a refund when using the Handys platform. <br /> <br />{" "}
+        <h2 className="article-header">Cancellation and Refunds</h2>
+        Customers may cancel a booking at any time prior to the service
+        provider’s arrival at the service location. If a customer cancels their
+        booking, a full refund will be issued. <br /> <br /> In the event of a
+        service provider not being able to fulfill the booking, Handys will work
+        to find a replacement service provider. If no replacement can be found,
+        a full refund will be issued.
+        <br /> <br />
+        <h2 className="article-header">Refund Processing</h2>
+        Refunds will be processed through the original payment method within
+        7-10 business days. If the payment was made with a credit or debit card,
+        the refunded amount may take an additional 3-5 business days to reflect
+        on the customer’s account.
+        <br /> <br />
+        <h2 className="article-header">Limitation of Liability</h2>
+        Handys shall not be liable for any damages or costs incurred as a result
+        of a cancelled booking or service.
+        <br /> <br />
+        <h2 className="article-header">Dispute Resolution</h2>
+        If a customer has a dispute with a service provider, they are encouraged
+        to report the issue to Handys through the in-app reporting system.
+        Handys will investigate the issue and work towards a resolution.
+        <br /> <br />
+        <h2 className="article-header">Changes to Refund Policy</h2>
+        Handys reserves the right to modify this Refund Policy at any time. Any
+        changes will be effective immediately upon posting to the Handys
+        platform.
+        <br /> <br />
+        <h2 className="article-header">Contact Us </h2>
+        For any questions regarding this Refund Policy, please contact us at
+        [insert contact information].
+      </div>
+    ),
   },
+  // how to report violations
   {
     id: 2703,
     top: false,
@@ -849,8 +924,59 @@ export const articles = [
       </div>
     ),
   },
+  {
+    id: 2703,
+    top: false,
+    category: "customer",
+    title: "Safety and Accessibility",
+    area: "legal and policies",
+    slug: "safety-and-accessibility",
+    shortDesc:
+      "Handys is committed to providing a safe and accessible platform for both our service providers and customers. We have implemented various measures to ensure the safety and accessibility of our app and website for all users",
+    content: (
+      <div>
+        Handys is committed to providing a safe and accessible platform for both
+        our service providers and customers. We have implemented various
+        measures to ensure the safety and accessibility of our app and website
+        for all users.
+        <br />
+        <br />
+        <h2 className="article-header">1. Accessibility: </h2>
+        Our website and app have been designed to be accessible for users with
+        disabilities and comply with the standards set by the Web Content
+        Accessibility Guidelines (WCAG) 2.1. If you encounter any accessibility
+        issues while using our platform, please contact us and we will work to
+        resolve the issue as soon as possible.
+        <br />
+        <h2 className="article-header">2. Safety: </h2> The safety of our users
+        is of utmost importance to us. We take various measures to ensure the
+        safety of our platform, including: <br />
+        -Verifying the identity and background of our service providers through
+        various checks and screenings
+        <br />
+        -Implementing secure payment methods for our customers
+        <br />
+        -Providing a secure platform for communication between service providers
+        and customers
+        <br />
+        -Providing a dispute resolution process for customers to report any
+        issues or concerns
+        <br />
+        <br /> We encourage all users to follow basic safety precautions when
+        using our platform, such as meeting service providers in a public place
+        for the first time and always trust your instincts. <br /> If you
+        encounter any safety concerns while using our platform, please
+        immediately report the issue to us so we can take the necessary steps to
+        resolve it. <br /> <br /> By using our platform, you agree to follow our
+        safety and accessibility policy and take responsibility for ensuring
+        your own safety while using our service.
+      </div>
+    ),
+  },
 
-  // PROVIDER
+  // safety and accessibility
+
+  // ?? PROVIDER ARTICLES ||||||||
 
   // TROUBLESHOOTING
 ];
