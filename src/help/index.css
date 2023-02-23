@@ -9,3 +9,7 @@
 .helped {
   @apply mx-2 underline underline-offset-4 hover:text-primary cursor-pointer text-gray;
 }
+
+.article-header {
+  @apply font-bold text-lg text-black;
+}

@@ -9,14 +9,13 @@ import GetInTouch from "./GetInTouch";
 import Border from "../../components/Border/Border";
 
 function Article() {
+  const { slug } = useParams();
+  const data = useOutletContext();
+
   // scroll to top
   React.useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  const data = useOutletContext();
-
-  const { slug } = useParams();
+  }, [slug]);
 
   const [selectArticle, setSelectArticle] = useState(null);
   const [related, setRelated] = useState([]);

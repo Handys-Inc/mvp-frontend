@@ -15,7 +15,13 @@ function Search({ articles }) {
   useEffect(() => {
     setShow(true);
     if (search !== "") {
-      setHits(articles.filter((article) => article.title.includes(search)));
+      setHits(
+        articles.filter(
+          (article) =>
+            article.title.toLowerCase().includes(search.toLowerCase()) ||
+            article.shortDesc.toLowerCase().includes(search.toLowerCase())
+        )
+      );
     } else {
       setHits([]);
     }
