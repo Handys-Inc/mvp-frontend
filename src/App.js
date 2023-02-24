@@ -24,6 +24,7 @@ import HelpLayout from "./help/layout/HelpLayout";
 import Provider from "./help/provider/Provider";
 import CustomerCategory from "./help/customer/CustomerCategory";
 import Article from "./help/article/Article";
+import ProviderCategory from "./help/provider/ProviderCategory";
 
 function App() {
   return (
@@ -62,7 +63,8 @@ function App() {
           <Route path="customer/:id" element={<CustomerCategory />} />
 
           {/* Provider */}
-          <Route path="provider/:id" element={<Provider />} />
+          <Route path="provider" element={<Provider />} />
+          <Route path="provider/:id" element={<ProviderCategory />} />
 
           {/* Articles */}
           <Route path="article/:slug" element={<Article />} />

@@ -978,5 +978,142 @@ export const articles = [
 
   // ?? PROVIDER ARTICLES ||||||||
 
-  // TROUBLESHOOTING
+  // Getting Started
+
+  // creating a profile
+  {
+    id: 96,
+    top: true,
+    category: "provider",
+    title: "Creating a Profile",
+    area: "getting started",
+    slug: "creating-a-profile",
+    subcategory: "request",
+    shortDesc:
+      "To become a service provider on Handys, you'll need to sign up to provide services",
+    content: (
+      <div>
+        To become a service provider on Handys, you'll need to sign up to
+        provide services.
+        <br />
+        <br />
+        Simply open the Handys app or website and select "Sign up to provide
+        services" to begin the process. After providing basic information, you
+        will be directed to the setup page where you can add more details about
+        your services.
+        <br /> <br />
+        The set up page is where you'll add your profession, set your hourly
+        rate, create your profile, and upload your ID and photos of completed
+        jobs. This information will help customers find you when they're
+        searching for a service provider in your area.
+        <br />
+        <br />
+        To make sure your profile accurately reflects your skills and
+        experience, take the time to fill out all relevant information and
+        upload professional photos of your completed work.
+        <br />
+        <br />
+        By completing the setup process, you'll be ready to start accepting
+        bookings and providing services to customers through Handys.
+      </div>
+    ),
+  },
+
+  // accepting service requests
+  {
+    id: 964,
+    top: true,
+    category: "provider",
+    title: "Accepting service requests",
+    area: "getting started",
+    slug: "accepting-service-requests",
+
+    shortDesc:
+      "Handypersons receive notifications for new service requests. They can view the details of the request and decide whether to accept or decline",
+    content: (
+      <div>
+        1. Handypersons receive notifications for new service requests. They can
+        view the details of the request and decide whether to accept or decline
+        <br />
+        <br />
+        2. If accepted, the handyperson confirms their availability and arrival
+        time
+        <br />
+        <br />
+        3. The customer is informed of the acceptance and the handyperson's
+        estimated arrival time
+        <br />
+        <br />
+        4. The handyperson is expected to provide the agreed services in a
+        professional and timely manner
+        <br />
+        <br />
+        5.Communication between the handyperson and customer should remain open
+        and transparent throughout the service process
+        <br />
+        <br />
+        6. Upon completion, the handyperson confirms the service as done and the
+        payment is processed automatically.
+      </div>
+    ),
+  },
+
+  //
+  {
+    id: 754,
+    top: true,
+    category: "provider",
+    title: "Setting up payout methods",
+    area: "getting started",
+    slug: "setting-up-payout-methods",
+
+    shortDesc:
+      "When it comes to getting paid for your services as a handyperson, it's important to have a reliable and convenient payout method in place. Handys, a platform connecting service providers with customers, offers two payout options: PayPal and Interac.",
+    content: (
+      <div>
+        When it comes to getting paid for your services as a handyperson, it's
+        important to have a reliable and convenient payout method in place.
+        Handys, a platform connecting service providers with customers, offers
+        two payout options: PayPal and Interac. This article will guide you on
+        how to set up your payout method so you can start receiving payment for
+        your services.
+        <br />
+        <br />
+        <h2 className="article-header">
+          {" "}
+          Setting up your payout method during sign-up:
+        </h2>
+        When you first sign up to become a handyperson on Handys, you will be
+        asked to input your payment information. Simply select either PayPal or
+        Interac as your preferred payout method and follow the prompts to set up
+        your account.
+        <br />
+        <br />
+        <h2 className="article-header">
+          {" "}
+          Setting up your payout method on your profile:{" "}
+        </h2>
+        If you have already signed up but haven't set up your payout method yet,
+        you can do so from your Handys profile. Simply log in to your account,
+        go to your profile, and select the payment section. From there, you can
+        select either PayPal or Interac and follow the prompts to set up your
+        account.
+        <br />
+        <br />
+        <h2 className="article-header">PayPal: </h2>
+        PayPal is a widely accepted online payment platform that is easy to use
+        and secure. If you don't have a PayPal account, you can easily set one
+        up for free. Simply go to PayPal's website, select "Sign Up", and follow
+        the prompts to create an account. Once your PayPal account is set up,
+        link it to your Handys account and start receiving payments via PayPal.
+        <br />
+        <br />
+        <h2 className="article-header"> Interac: </h2> Interac is a Canadian
+        payment platform that is widely used and accepted. If you already have
+        an Interac account, simply link it to your Handys account to start
+        receiving payments. If you don't have an Interac account, you can easily
+        set one up by contacting your financial institution.
+      </div>
+    ),
+  },
 ];
