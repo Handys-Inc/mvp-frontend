@@ -39,9 +39,9 @@ function Article() {
     const select = selectArticle[0];
 
     return (
-      <div className="max-w-7xl mx-auto mt-10">
+      <div className="w-full md:max-w-7xl mx-auto mt-10">
         {/* Header */}
-        <div className="mt-5 text-lg flex items-center gap-2">
+        <div className="w-full text-xs  md:text-lg mt-5 flex items-center gap-1 md:gap-2">
           <NavLink to="/help">Help center</NavLink>
           <IoIosArrowForward className="inline mx-1" />
           <NavLink to={`/help/${select.category}/${select.area}`}>
@@ -49,14 +49,14 @@ function Article() {
           </NavLink>{" "}
           <IoIosArrowForward className="inline mx-1" /> {select.title}
         </div>
-        <p className="mt-1 mb-5 font-light text-gray ">
+        <p className="mt-1 mb-5 text-sm md:text-base font-light text-gray ">
           {capitalize(select.category)}
         </p>
 
         {/* Article content and get in touch */}
 
-        <div className="flex gap-20 justify-between">
-          <div className="w-8/12">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-20 justify-between">
+          <div className="w-full md:w-8/12">
             <h3 className="text-xl font-semibold mb-2">{select.title}</h3>
             <div className="text-gray leading-loose">{select.content}</div>
 
@@ -82,7 +82,7 @@ function Article() {
                 );
               })}
           </div>
-          <div className="w-4/12">
+          <div className="w-full md:w-4/12">
             <GetInTouch />
           </div>
         </div>

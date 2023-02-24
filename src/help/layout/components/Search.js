@@ -32,13 +32,13 @@ function Search({ articles }) {
       onClick={() => setShow(false)}
       className="relative py-10 mx-auto text-center"
     >
-      <h3 className="text-4xl font-semibold mb-5">
+      <h3 className="hidden md:block text-4xl font-semibold mb-5">
         Hello Username, how can we help?
       </h3>
       <div className="max-w-lg mx-auto">
         <div className="border border-faintGray shadow-md w-full text-left flex justify-between pl-4 pr-2 rounded-full py-1">
           <input
-            className="appearance-none w-full flex-1"
+            className="text-sm md:text-base appearance-none w-full flex-1"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search topics and keywords eg.payment"
@@ -49,7 +49,7 @@ function Search({ articles }) {
         </div>
       </div>
       {show && hits.length >= 1 && (
-        <div className="mx-auto w-1/3 mt-5 absolute right-1/3 bg-white border rounded-2xl p-5 border-faintGray min-h-[10rem] shadow-md z-30">
+        <div className="mx-auto w-full md:w-1/3 mt-5 absolute right-1 md:right-1/3 bg-white border rounded-2xl p-5 border-faintGray min-h-[10rem] shadow-md z-30">
           <div className="flex justify-between mb-4">
             <h4 className="text-left font-semibold">Top articles</h4>
             <p

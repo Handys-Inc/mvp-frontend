@@ -12,6 +12,8 @@ import { Fragment } from "react";
 
 import { HiMenu } from "react-icons/hi";
 
+import { IoArrowBackOutline } from "react-icons/io5";
+
 function Header() {
   const links = [
     { href: "/messages", label: "Messages" },
@@ -37,8 +39,11 @@ function Header() {
               alt="Logo"
             />
           </NavLink>
+          <NavLink to="/">
+            <IoArrowBackOutline className="block md:hidden" />
+          </NavLink>
           <NavLink to="/help">
-            <p className="text-2xl font-bold">| Help Center</p>
+            <p className="text-lg md:text-2xl font-bold"> Help Center</p>
           </NavLink>
         </div>
 
