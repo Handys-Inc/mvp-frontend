@@ -6,17 +6,19 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import { NavLink, useParams, useOutletContext } from "react-router-dom";
 
-function CustomerCategory() {
+function ProviderCategory() {
   const data = useOutletContext();
 
   const { id } = useParams();
+
+  console.log("id", id);
 
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     setArticles(
       data.filter(
-        (article) => article.area === id && article.category === "customer"
+        (article) => article.area === id && article.category === "provider"
       )
     );
   }, []);
@@ -62,4 +64,4 @@ function CustomerCategory() {
   }
 }
 
-export default CustomerCategory;
+export default ProviderCategory;
