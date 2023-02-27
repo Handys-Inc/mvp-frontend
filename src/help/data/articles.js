@@ -983,7 +983,7 @@ export const articles = [
   // creating a profile
   {
     id: 96,
-    top: true,
+    top: false,
     category: "provider",
     title: "Creating a Profile",
     area: "getting started",
@@ -1159,7 +1159,7 @@ export const articles = [
   // what to do if you forget your login credentials
   {
     id: 7534,
-    top: true,
+    top: false,
     category: "provider",
     title: "What to do if you forget your login credentials",
     area: "troubleshooting",
@@ -1228,10 +1228,10 @@ export const articles = [
     ),
   },
 
-  // new
+  // issue with service request
   {
     id: 754,
-    top: true,
+    top: false,
     category: "provider",
     title: "What to do if you have an issue with a service request",
     area: "troubleshooting",
@@ -1285,17 +1285,275 @@ export const articles = [
       </div>
     ),
   },
-  // new
+  // how to make a profile standout
   {
-    id: 754,
+    id: 751212124,
     top: true,
     category: "provider",
-    title: "Setting up payout methods",
-    area: "getting started",
-    slug: "setting-up-payout-methods",
+    title: "How to Make a profile standout",
+    area: "tips and tricks",
+    slug: "how-to-make-a-profile-standout",
 
     shortDesc:
-      "Handypersons can set their availability on the Handys web app to ensure customers are aware of when they are available for service requests",
-    content: <div></div>,
+      "If you are a handyperson using the Handys platform, having a standout profile is crucial to attracting customers and securing service requests. Here are some tips to make your profile stand out",
+    content: (
+      <div>
+        If you are a handyperson using the Handys platform, having a standout
+        profile is crucial to attracting customers and securing service
+        requests. Here are some tips to make your profile stand out:
+        <br /> <br />
+        <h2 className="article-header"> 1. Complete all sections: </h2>
+        Ensure that all sections of your profile are complete and up-to-date,
+        including your professional background, services offered, hourly rate,
+        and payment information.
+        <br />
+        <h2 className="article-header"> 2. High-quality profile picture: </h2>
+        A clear, professional-looking profile picture can go a long way in
+        making a great first impression on potential customers.
+        <br />
+        <h2 className="article-header">
+          {" "}
+          3. High-quality portfolio pictures:{" "}
+        </h2>
+        Add clear pictures of past projects to showcase your skills and give
+        customers an idea of what to expect from your services.
+        <br />
+        <h2 className="article-header"> 4. Customer reviews:</h2>
+        Encourage satisfied customers to leave positive reviews on your profile,
+        as this can be a significant factor in customers' decision-making
+        process.
+        <br /> <br />
+        By following these tips, you can make your Handys profile stand out and
+        attract more service requests from customers.
+      </div>
+    ),
   },
+
+  //  how to increase customer satisfaction
+  {
+    id: 754,
+    top: false,
+    category: "provider",
+    title: "How to increase customer satisfaction",
+    area: "tips and tricks",
+    slug: "increase-customer-satisfaction",
+
+    shortDesc:
+      "To increase customer satisfaction as a handyperson, consider the following steps",
+    content: (
+      <div>
+        To increase customer satisfaction as a handyperson, consider the
+        following steps:
+        <br />
+        <br />
+        <h2 className="article-header">1. Provide high-quality work:</h2>
+        Make sure to deliver work that is of the highest standard and meets or
+        exceeds the customer's expectations.
+        <br />
+        <h2 className="article-header">2. Be prompt and reliable:</h2>
+        Arrive on time and complete the job within the agreed timeframe.
+        <br />
+        <br />
+        <h2 className="article-header">3. Good communication:</h2>
+        Keep customers informed of progress and any potential issues. Respond to
+        their inquiries in a timely manner.
+        <br />
+        <br />
+        <h2 className="article-header"> 4. Professionalism:</h2>
+        Maintain a professional demeanor at all times, including dress and
+        language.
+        <br />
+        <br />
+        <h2 className="article-header"> </h2>
+        Ask for feedback: Encourage customers to provide feedback and listen to
+        their comments. Take any suggestions on board to continuously improve
+        your services.
+        <br />
+        <br />
+        Follow up after the job is done: Contact customers after the job is
+        complete to ensure that they are satisfied and to address any remaining
+        concerns. By implementing these steps, you can improve customer
+        satisfaction and increase the likelihood of repeat business.
+      </div>
+    ),
+  },
+
+  // how to maintain a good reputation
+  {
+    id: 104,
+    top: false,
+    category: "provider",
+    title: "How to maintain a good reputation",
+    area: "tips and tricks",
+    slug: "maintain-a-good-reputation",
+
+    shortDesc:
+      "Provide high quality work, meet customer expectations, follow up with customers, be responsive and more. Read the article to learn more",
+    content: (
+      <div>
+        <h2 className="article-header">1. Provide high-quality work:</h2>
+        Ensure that you deliver your services with the highest level of
+        professionalism, accuracy and efficiency.
+        <h2 className="article-header">2. Meet customer expectations: </h2>
+        Communication is key. Make sure you understand what your customer wants
+        and provide exactly that.
+        <br />
+        <h2 className="article-header">3. Follow up with customers:</h2>
+        After completing a job, reach out to the customer and ask if they are
+        satisfied with the work. This shows you care and helps identify any
+        areas for improvement.
+        <br />
+        <h2 className="article-header">4. Be responsive:</h2>
+        Be prompt and professional in your communication with customers. Respond
+        to their inquiries and requests in a timely manner.
+        <br />
+        <h2 className="article-header"> 5. Provide competitive pricing:</h2>
+        Charge fair prices that are competitive with other service providers in
+        your area.
+        <br />
+        <h2 className="article-header">
+          6. Maintain good customer relationships:
+        </h2>
+        Treat your customers with respect and build a good rapport with them.
+        This will increase the likelihood of repeat business and positive
+        word-of-mouth recommendations.
+        <br />
+        <h2 className="article-header">7. Keep your profile updated:</h2>
+        Make sure your profile is up-to-date, accurate, and professional. This
+        helps you stand out and attract more customers.
+        <br />
+        <h2 className="article-header"> 8. Get positive reviews:</h2>
+        Encourage customers to leave positive reviews and respond to negative
+        ones professionally.
+        <br />
+        <h2 className="article-header"> 9. Continuously improve:</h2>
+        Stay up-to-date with industry trends, best practices, and customer
+        feedback. This will help you continuously improve your services and
+        maintain a good reputation.
+      </div>
+    ),
+  },
+
+  // how to handle demanding customers
+  {
+    id: 309,
+    top: false,
+    category: "provider",
+    title: "How to handle demanding customers",
+    area: "tips and tricks",
+    slug: "how-to-handle-demanding-customers",
+
+    shortDesc:
+      "Handling demanding customers can be challenging, but it's important to maintain a professional and positive attitude to provide the best possible customer service. Here are some tips for handling demanding customers",
+    content: (
+      <div>
+        Handling demanding customers can be challenging, but it's important to
+        maintain a professional and positive attitude to provide the best
+        possible customer service. Here are some tips for handling demanding
+        customers:
+        <br />
+        <br />
+        <h2 className="article-header">1. Listen actively:</h2>
+        Pay close attention to what the customer is saying and try to understand
+        their perspective. Repeat back to the customer what they have told you
+        to show that you are listening and to clarify their concerns.
+        <br />
+        <br />
+        <h2 className="article-header">2. Stay calm:</h2>
+        No matter how demanding the customer is, it's important to remain calm
+        and professional. Take a deep breath, and try to respond in a calm and
+        helpful manner.
+        <br />
+        <br />
+        <h2 className="article-header">3. Apologize:</h2>
+        If the customer is upset about something, apologize for the situation.
+        Even if you are not at fault, apologizing can help to diffuse the
+        situation and show the customer that you are willing to help.
+        <br />
+        <br />
+        <h2 className="article-header">4. Be Empathetic:</h2>
+        Try to put yourself in the customer's shoes and understand their point
+        of view. This can help you to respond in a more empathetic and
+        understanding manner.
+        <br />
+        <br />
+        <h2 className="article-header">5. Offer a solution:</h2>
+        Offer the customer a solution to their problem. If you cannot resolve
+        the issue immediately, explain what you can do to help and provide a
+        timeline for when you will follow up.
+        <br />
+        <br />
+        <h2 className="article-header">6. Follow up:</h2>
+        If you promised the customer that you would follow up, make sure that
+        you do so. This can help to maintain a good reputation and increase
+        customer satisfaction.
+        <br />
+        <br />
+        <h2 className="article-header">7. Document the conversation:</h2>
+        Keep a record of the conversation for reference in case the issue needs
+        to be revisited in the future.
+        <br />
+        <br />
+        Remember, the goal is to turn a potentially negative situation into a
+        positive experience for the customer. By handling demanding customers
+        with patience, empathy, and professionalism, you can maintain a good
+        reputation and increase customer satisfaction.
+      </div>
+    ),
+  },
+
+  //bills and payments
+  {
+    id: 30424,
+    top: false,
+    category: "provider",
+    title: "Understanding billing and payments",
+    area: "payment and billing",
+    slug: "understanding-billing-and-payments",
+
+    shortDesc:
+      "Handypersons are charged a commission fee for each service request they complete through Handys. Customers are charged for the services they receive on an hourly basis, as set by the handyperson. ",
+    content: (
+      <div>
+        Handypersons are charged a commission fee for each service request they
+        complete through Handys. Customers are charged for the services they
+        receive on an hourly basis, as set by the handyperson. The handyperson
+        sets their own hourly rate and Handys adds the commission fee on top of
+        that rate.
+        <br />
+        <br />
+        Payments are processed through the payment methods chosen by the
+        customer, which currently include credit/debit cards and PayPal. The
+        payment is transferred to the handyperson's account after the service is
+        completed and both the customer and handyperson have confirmed the
+        completion of the service.
+        <br />
+        <br />
+        Handys may also deduct any taxes or other fees as required by law.
+        Handypersons are responsible for reporting their income and paying any
+        applicable taxes on their earnings. Handys will not be held responsible
+        for any tax obligations or penalties incurred by handypersons.
+        <br />
+        <br />
+        It's important for handypersons to regularly review their account and
+        transaction history to ensure that all payments and fees are accurate
+        and up-to-date. Handypersons may contact customer support for any
+        questions or issues regarding billing and payments.
+      </div>
+    ),
+  },
+
+  //new
+  // {
+  //   id: 754,
+  //   top: false,
+  //   category: "provider",
+  //   title: "Setting up payout methods",
+  //   area: "getting started",
+  //   slug: "setting-up-payout-methods",
+
+  //   shortDesc:
+  //     "Handypersons can set their availability on the Handys web app to ensure customers are aware of when they are available for service requests",
+  //   content: <div></div>,
+  // },
 ];
