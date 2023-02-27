@@ -67,11 +67,15 @@ function Search({ articles }) {
           {hits.map((hit) => {
             return (
               <NavLink to={`article/${hit.slug}`}>
-                <div className="text-left flex gap-3 items-center mb-3">
-                  <div className="w-8 h-8 flex items-center justify-center bg-mute rounded-full ">
+                <div className="text-left flex gap-3 items-center mb-4">
+                  <div className="w-8 h-8 flex items-center justify-center bg-mute rounded-full">
                     <HiOutlineDocumentText className="text-gray" size={18} />
                   </div>
-                  <h4 className="text-gray hover:text-primary ">{hit.title}</h4>
+                  <div>
+                    <h4 className="text-gray hover:text-black">{hit.title}</h4>
+                    <p className="text-primary text-[0.65rem] font-semibold">{hit.category.toUpperCase()}</p>
+                  </div>
+
                 </div>
               </NavLink>
             );
