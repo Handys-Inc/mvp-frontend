@@ -1058,7 +1058,7 @@ export const articles = [
     ),
   },
 
-  //
+  //setting up payment methods
   {
     id: 754,
     top: true,
@@ -1115,5 +1115,187 @@ export const articles = [
         set one up by contacting your financial institution.
       </div>
     ),
+  },
+
+  // Availability on web application
+  {
+    id: 22754,
+    top: true,
+    category: "provider",
+    title: "Availability on web app",
+    area: "getting started",
+    slug: "availability-on-web-app",
+
+    shortDesc:
+      "Handypersons can set their availability on the Handys web app to ensure customers are aware of when they are available for service requests",
+    content: (
+      <div>
+        Handypersons can set their availability on the Handys web app to ensure
+        customers are aware of when they are available for service requests.
+        <br />
+        <br />
+        To set your availability, follow these steps: <br />
+        1. Log in to your Handys account on the web app
+        <br />
+        2. Navigate to your profile or account settings
+        <br />
+        3. Select the “Calendar” on the menu bar
+        <br />
+        4.Choose the days you are available for service requests and set
+        availability
+        <br /> <br />
+        By setting your availability, customers can see when you are available
+        to take on new service requests and book you accordingly. This helps to
+        ensure that you are only receiving service requests when you are able to
+        accept them.
+        <br />
+        <br /> It’s important to keep your availability up to date and to make
+        changes as needed to ensure customer satisfaction and avoid missed
+        service requests.
+      </div>
+    ),
+  },
+
+  // what to do if you forget your login credentials
+  {
+    id: 7534,
+    top: true,
+    category: "provider",
+    title: "What to do if you forget your login credentials",
+    area: "troubleshooting",
+    slug: "forget-login-credentials",
+
+    shortDesc:
+      "If you forget your login credentials, you can follow these steps to retrieve them",
+    content: (
+      <div>
+        If you forget your login credentials, you can follow these steps to
+        retrieve them:
+        <br /> <br />
+        1. Go to the login page and click on "Forgot Password"
+        <br />
+        2. Enter the email associated with your account or your username. <br />
+        3. You will receive an email or SMS with instructions on how to reset
+        your password.
+        <br />
+        4. Follow the steps in the email or SMS to reset your password.
+        <br />
+        5. Once your password is reset, you should be able to log in to your
+        account.
+        <br /> <br /> If you can't reset your password or if you forget your
+        username, you can contact the support team for assistance.
+      </div>
+    ),
+  },
+
+  // how to get paid
+  {
+    id: 757934,
+    top: true,
+    category: "provider",
+    title: "How to Get Paid",
+    area: "payments and billing",
+    slug: "how-to-get-paid",
+
+    shortDesc:
+      "As a Handys service provider, getting paid for your services is a crucial part of the process. Here are the steps to receive payment",
+    content: (
+      <div>
+        As a Handys service provider, getting paid for your services is a
+        crucial part of the process. Here are the steps to receive payment:
+        <br />
+        <br />
+        1. Complete the service: Once the service is completed, you can mark the
+        job as completed on the Handys app. <br />
+        <br />
+        2. Receive Payment: Once the customer approves the completion of the
+        service, the payment will be automatically released to you.
+        <br />
+        <br />
+        3. Choose your payment method: You can choose to receive payment through
+        PayPal or Interac. This can be set up in your Handys profile. <br />
+        <br />
+        4. Payment Processing Time: The processing time for payments can vary
+        depending on the payment method chosen. Generally, it takes 1-3 business
+        days for payment to be processed and deposited into your account.
+        <br />
+        <br /> It's important to note that Handys takes a 3% fee on each
+        transaction to cover the costs of processing payments.
+        <br />
+        <br /> By following these steps, you can ensure timely and efficient
+        payment for your services on Handys.
+      </div>
+    ),
+  },
+
+  // new
+  {
+    id: 754,
+    top: true,
+    category: "provider",
+    title: "What to do if you have an issue with a service request",
+    area: "troubleshooting",
+    slug: "issue-with-service-request",
+
+    shortDesc:
+      "If a handyperson has an issue with a service request, they should take the following steps",
+    content: (
+      <div>
+        If a handyperson has an issue with a service request, they should take
+        the following steps:
+        <br />
+        <br />
+        <h2 className="article-header">
+          {" "}
+          1. Review the details of the service request:
+        </h2>
+        Before taking any action, the handyperson should review the details of
+        the service request, including the description, requirements, and any
+        attachments provided by the customer.
+        <br />
+        <br />
+        <h2 className="article-header"> 2. Contact the customer:</h2>
+        If the handyperson needs clarification or has any questions about the
+        service request, they should reach out to the customer.
+        <br />
+        <br />
+        <h2 className="article-header"> 3. Report the issue:</h2>
+        If the handyperson feels that the service request is inappropriate,
+        violates the terms of service, or poses a safety concern, they should
+        report the issue to Handys through the in-app reporting system.
+        <br />
+        <br />
+        <h2 className="article-header"> 4. Provide details:</h2>
+        When reporting the issue, the handyperson should provide as much detail
+        as possible, including the reason for the report, the service request
+        ID, and any relevant attachments.
+        <br />
+        <br />
+        <h2 className="article-header"> 5. Wait for a response:</h2>
+        After reporting the issue, the handyperson should wait for a response
+        from Handys. The company will review the report and take appropriate
+        action, which may include canceling the service request, reassigning it
+        to a different handyperson, or contacting the customer for more
+        information.
+        <br />
+        <br />
+        <h2 className="article-header">6. Keep track of the resolution:</h2>
+        The handyperson should keep track of the resolution of the issue and
+        follow up with Handys if they have any further concerns.
+      </div>
+    ),
+  },
+  // new
+  {
+    id: 754,
+    top: true,
+    category: "provider",
+    title: "Setting up payout methods",
+    area: "getting started",
+    slug: "setting-up-payout-methods",
+
+    shortDesc:
+      "Handypersons can set their availability on the Handys web app to ensure customers are aware of when they are available for service requests",
+    content: <div></div>,
   },
 ];
