@@ -15,6 +15,7 @@ function Search({ articles }) {
   useEffect(() => {
     setShow(true);
     if (search !== "") {
+      // console.log("inner content?", articles[0].content)
       setHits(
         articles.filter(
           (article) =>

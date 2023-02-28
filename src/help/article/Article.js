@@ -30,7 +30,7 @@ function Article() {
   useEffect(() => {
     if (selectArticle) {
       setRelated(
-        data.filter((article) => article.area === selectArticle[0].area)
+        data.filter((article) => article.area === selectArticle[0].area && article.category === selectArticle[0].category)
       );
     }
   }, [change]);

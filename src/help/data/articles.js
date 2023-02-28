@@ -754,17 +754,7 @@ export const articles = [
   },
 
   // LEGAL AND POLICIES
-  // terms of service
-  {
-    id: 273,
-    top: false,
-    category: "customer",
-    title: "Terms of service",
-    area: "legal and policies",
-    slug: "terms-of-service",
-    shortDesc: "No content yet",
-    content: <div>No content for this article yet</div>,
-  },
+
   // privacy policy
   {
     id: 27763,
@@ -1541,6 +1531,275 @@ export const articles = [
         questions or issues regarding billing and payments.
       </div>
     ),
+  },
+
+  // privacy policy
+  {
+    id: 27763,
+    top: false,
+    category: "provider",
+    title: "Privacy policy",
+    area: "legal and policies",
+    slug: "privacy-policy",
+    shortDesc:
+      "Handys is committed to protecting the privacy and security of its customers and service providers. This Privacy Policy outlines our practices regarding the collection, use, disclosure, and protection of personal information",
+    content: (
+      <div>
+        Handys is committed to protecting the privacy and security of its
+        customers and service providers. This Privacy Policy outlines our
+        practices regarding the collection, use, disclosure, and protection of
+        personal information.
+        <br />
+        <br />
+        Definitions:
+        <br />
+        * "Personal Information" means any information that identifies or can be
+        used to identify an individual, including but not limited to, name,
+        address, email address, and phone number.
+        <br />
+        "Service" refers to the platform provided by Handys connecting service
+        providers to customers who need their services, including but not
+        limited to, painting, electrician, plumbing and general handy services.
+        <br />
+        <br />
+        <span className="article-header">Information Collection and Use: </span>
+        <br />
+        Handys collects personal information from its customers and service
+        providers when they register for the Service and when they request
+        services through the platform.
+        <br />
+        The personal information collected may be used to provide services,
+        process payments, and communicate with customers and service providers.
+        <br />
+        Handys may also use personal information for internal research and
+        analysis to improve the Service.
+        <br />
+        <br />
+        <span className="article-header">
+          Disclosure of Personal Information:
+        </span>{" "}
+        <br />
+        Handys may disclose personal information to third-party service
+        providers to assist in the provision of the Service.
+        <br /> Handys may also disclose personal information if required by law
+        or in the good faith belief that such disclosure is necessary to comply
+        with legal requirements or protect the rights, property, or safety of
+        Handys, its customers, or others. Handys will not sell, trade, or
+        otherwise transfer personal information to outside parties without the
+        customer's or service provider's consent.
+        <br />
+        <br />
+        <span className="article-header">
+          Security of Personal Information:
+        </span>
+        <br /> Handys takes reasonable precautions to protect personal
+        information from loss, misuse, unauthorized access, disclosure,
+        alteration, or destruction. Handys uses secure servers and encryption
+        technologies to protect personal information, and implements appropriate
+        physical and technical security measures to prevent unauthorized access
+        to systems where personal information is stored.
+        <br />
+        Changes to this Privacy
+        <br />
+        Policy: Handys may update this Privacy Policy from time to time. Any
+        changes to this policy will be reflected on this page and will become
+        effective upon posting. <br /> Customers and service providers are
+        encouraged to periodically review this Privacy Policy to stay informed
+        of updates.
+        <br /> <br />
+        <span className="article-header">Contact Information:</span>
+        If you have any questions or concerns about Handys' privacy practices,
+        please contact us at [insert contact information].
+        <br /> <br /> This Privacy Policy is governed by and construed in
+        accordance with the laws of [insert jurisdiction]. Any dispute arising
+        from this Privacy Policy will be resolved through binding arbitration in
+        [insert location]. This Privacy Policy was last updated on [insert
+        date].
+      </div>
+    ),
+  },
+  // refund policy
+  {
+    id: 2394,
+    top: false,
+    category: "provider",
+    title: "Refund policy",
+    area: "legal and policies",
+    slug: "refund-policy",
+    shortDesc: "No content yet",
+    content: (
+      <div>
+        <h2 className="article-header">Purpose</h2>
+        This Refund Policy outlines the circumstances under which a customer may
+        be eligible for a refund when using the Handys platform. <br /> <br />{" "}
+        <h2 className="article-header">Cancellation and Refunds</h2>
+        Customers may cancel a booking at any time prior to the service
+        provider’s arrival at the service location. If a customer cancels their
+        booking, a full refund will be issued. <br /> <br /> In the event of a
+        service provider not being able to fulfill the booking, Handys will work
+        to find a replacement service provider. If no replacement can be found,
+        a full refund will be issued.
+        <br /> <br />
+        <h2 className="article-header">Refund Processing</h2>
+        Refunds will be processed through the original payment method within
+        7-10 business days. If the payment was made with a credit or debit card,
+        the refunded amount may take an additional 3-5 business days to reflect
+        on the customer’s account.
+        <br /> <br />
+        <h2 className="article-header">Limitation of Liability</h2>
+        Handys shall not be liable for any damages or costs incurred as a result
+        of a cancelled booking or service.
+        <br /> <br />
+        <h2 className="article-header">Dispute Resolution</h2>
+        If a customer has a dispute with a service provider, they are encouraged
+        to report the issue to Handys through the in-app reporting system.
+        Handys will investigate the issue and work towards a resolution.
+        <br /> <br />
+        <h2 className="article-header">Changes to Refund Policy</h2>
+        Handys reserves the right to modify this Refund Policy at any time. Any
+        changes will be effective immediately upon posting to the Handys
+        platform.
+        <br /> <br />
+        <h2 className="article-header">Contact Us </h2>
+        For any questions regarding this Refund Policy, please contact us at
+        [insert contact information].
+      </div>
+    ),
+  },
+
+  // how to improve your rating and reputation
+  {
+    id: 3907,
+    top: false,
+    category: "provider",
+    title: "How to Improve Your Rating and Reputation",
+    area: "tips and tricks",
+    slug: "improve-rating-and-reputation",
+
+    shortDesc:
+      "As a Handys service provider, it's important to maintain a high rating and reputation to attract new customers and keep existing ones satisfied with your services. Here are a few tips to help improve your rating and reputation",
+    content: <div>
+
+      As a Handys service provider, it's important to maintain a high rating and reputation to attract new customers and keep existing ones satisfied with your services. Here are a few tips to help improve your rating and reputation:
+      <br />
+      <br />
+      <h2 className="article-header"> 1. Complete jobs to a high standard:</h2>
+      Ensure that you perform each job to the best of your ability, meeting or exceeding customer expectations. This can be achieved by paying attention to detail, completing work efficiently, and ensuring that all work is done to a high standard.
+      <br />
+      <br />
+      <h2 className="article-header">  2. Communicate effectively: </h2>
+      Good communication is key to ensuring customer satisfaction. Keep customers informed about progress, provide updates, and respond promptly to any questions or concerns.
+      <br />
+      <br />
+      <h2 className="article-header"> 3. Build relationships:</h2>
+      Treat each customer with respect and professionalism, and take the time to get to know them. Building good relationships can lead to repeat business and positive reviews.
+      <br />
+      <br />
+      <h2 className="article-header"> 4. Respond to customer feedback:</h2>
+      If a customer provides feedback, take the time to understand their concerns and respond in a professional manner. This shows that you care about your customers and value their opinions.
+      <br />
+      <br />
+      <h2 className="article-header">  5. Be prompt and reliable: </h2>
+      Arrive at job sites on time and complete work in a timely manner. Being prompt and reliable can help build trust with customers and increase your rating.
+      <br />
+      <br />
+
+      By following these tips, you can improve your rating and reputation as a Handys service provider and attract more customers to your services.
+
+    </div>,
+  },
+
+  //guidelines and policies
+  {
+    id: 50354,
+    top: true,
+    category: "provider",
+    title: "Guidelines and Policies",
+    area: "getting started",
+    slug: "guidelines-and-policies",
+
+    shortDesc:
+      "As a service provider on Handys, it's important to be familiar with our guidelines and policies to ensure a positive experience for both you and our customers. These guidelines include but are not limited to the following.",
+    content: <div>
+
+
+      As a service provider on Handys, it's important to be familiar with our guidelines and policies to ensure a positive experience for both you and our customers. These guidelines include but are not limited to the following:
+
+      <br />
+      <br />
+      <h2 className="article-header"> 1. Provide quality services:</h2>
+      As a service provider, it's important to deliver high-quality services to customers and meet their expectations.
+
+      <br />
+      <br />
+      <h2 className="article-header"> 2. Be prompt and reliable:</h2>
+      Be punctual and arrive at the job site on time. Also, communicate promptly with customers if there are any changes or delays.
+
+      <br />
+      <br />
+      <h2 className="article-header"> 3.  Safety:</h2>
+      Follow all safety regulations and take necessary precautions to ensure a safe working environment.
+
+      <br />
+      <br />
+      <h2 className="article-header">4. Conduct and professionalism:</h2>
+      Maintain a professional and respectful demeanor towards customers and other service providers.
+
+      <br />
+      <br />
+      <h2 className="article-header"> 5. Payment:</h2>
+      Only accept payment through Handys’ approved payment methods and follow the payment policies outlined in our terms of service.
+
+      <br />
+      <br />
+      <h2 className="article-header"> 6.  Dispute resolution:</h2>
+      In case of any disputes, follow the dispute resolution process outlined in our terms of service.
+
+      <br />
+      <br />
+      <h2 className="article-header">     7. Privacy:</h2>
+      Respect the privacy of customers and maintain the confidentiality of their personal information.
+
+      <br />
+      <br />
+      <h2 className="article-header">  8. Content and language:</h2>
+      Do not post or share any offensive or inappropriate content or language on the Handys platform.
+
+      <br />
+      <br />
+
+      By following these guidelines and policies, you can ensure a positive experience for customers, maintain a good reputation, and build a successful business on Handys.
+
+    </div>,
+  },
+
+  //  ?? ABOUT HANDYS
+  //new
+  {
+    id: 7522323234,
+    top: false,
+    category: "provider",
+    title: "About Handys",
+    area: "getting started",
+    slug: "about-handys",
+
+    shortDesc:
+      "Handys is a web and mobile platform that connects service providers with customers in need of their services. Service providers, also known as Handypersons, can offer a wide range of services, including but not limited to painting, electrical work, plumbing, and general handy services.",
+    content: <div>
+      Handys is a web and mobile platform that connects service providers with customers in need of their services. Service providers, also known as "Handypersons," can offer a wide range of services, including but not limited to painting, electrical work, plumbing, and general handy services.
+
+      <br />
+      <br />
+      Handys provides a convenient way for customers to find and book service providers for their home improvement needs. Handypersons can create a profile and list their hourly rate, skills, and portfolio of previous work. They can also set their availability and receive notifications of new service requests.
+      <br /><br />
+      Payments are made through the platform, and Handypersons have the option of setting up their payout method through either Paypal or Interac. Handys charges a 3% fee on all transactions made through the platform.
+      <br /><br />
+      Handys takes customer satisfaction and safety seriously and has measures in place to resolve disputes and ensure high-quality service. They have a customer support team available to assist with any questions or issues.
+      <br /><br />
+      Handys offers a convenient, efficient, and secure way for customers to find the right Handyperson for their home improvement needs and for Handypersons to showcase their skills and grow their business.
+
+
+    </div>,
   },
 
   //new
