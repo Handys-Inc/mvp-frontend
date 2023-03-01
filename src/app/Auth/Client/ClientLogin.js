@@ -9,9 +9,34 @@ import { FaApple, FaFacebook } from "react-icons/fa";
 
 import { NavLink } from "react-router-dom";
 
+import SERVICES from '../../../services'
+
+import Loader from "../../../utils/Loader";
+import Notify from "../../../components/Notify/Notify";
+
 function ClientLogin() {
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
+
+  const [email, setEmail] = useState(null)
+  const [password, setPassword] = useState(null)
+
+  const [loading, setLoading] = useState(false)
+
+  const loginWithEmailAndPass = () => {
+    // 
+    setLoading(true)
+    SERVICES.login(email, password).then((res) => {
+      setLoading(false)
+      console.log("res", res)
+      Notify("success", "Logged in successfully")
+    }).catch((e) => {
+      setLoading(false)
+      Notify("error", e.response.data)
+    })
+  }
+
+
   return (
     <div className="bg-lightGray h-screen">
       <Navbar variant={true} login={false} />
@@ -26,6 +51,8 @@ function ClientLogin() {
           <div className="my-5">
             <input
               type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email or phone number"
               className="auth-input "
             />
@@ -40,6 +67,8 @@ function ClientLogin() {
 
               <input
                 className="auth-input"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 autoComplete="off"
@@ -52,7 +81,13 @@ function ClientLogin() {
               </span>
             </NavLink>
 
-            <button className="btn-primary w-full mt-5">Log In</button>
+            <button
+              onClick={() => loginWithEmailAndPass()}
+              disabled={email === null || password === null || loading}
+              className="btn-primary w-full mt-5">{loading ? <Loader /> : "Log In"}</button>
+
+
+
             <p className="text-gray text-sm my-3 text-center w-full">or</p>
             <button className="auth-social-btn">
               <FcGoogle className="inline-block mr-2" />

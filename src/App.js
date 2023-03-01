@@ -3,6 +3,12 @@ import React from "react";
 // router
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Notify Messages
+// toast messages
+import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer } from "react-toastify";
+
 // general app pages
 import Home from "./app/Home/Home";
 import Notfound from "./app/NotFound/Notfound";
@@ -29,6 +35,17 @@ import ProviderCategory from "./help/provider/ProviderCategory";
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Routes>
         {/*General Routes */}
         <Route path="/" exact element={<Home />} />
