@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Navbar from "../../../components/Navbar/Navbar";
 
 // icons
-import { BsArrowRight } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
 
