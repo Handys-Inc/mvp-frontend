@@ -71,7 +71,10 @@ function Code({ data, step, setStep }) {
             </NavLink>
 
             <div className="flex justify-between mt-5">
-              <button className="btn-primary-outline">
+              <button
+                onClick={() => navigate(-1)}
+                className="btn-primary-outline"
+              >
                 <BsArrowLeft className="mr-2 inline-block" />
                 Back{" "}
               </button>
