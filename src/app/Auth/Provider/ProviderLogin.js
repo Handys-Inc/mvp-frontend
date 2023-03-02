@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
+
+import Notify from "../../../components/Notify/Notify";
+
+import SERVICES from "../../../services";
+
+import Loader from "../../../utils/Loader";
 
 // icons
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -10,6 +16,35 @@ import { NavLink } from "react-router-dom";
 function ProviderLogin() {
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
+
+  const emailRef = useRef()
+  const passwordRef = useRef()
+
+
+  const [loading, setLoading] = useState(false)
+
+  const loginWithEmailAndPass = () => {
+    // 
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    if (email.length < 4 || password.length < 4) {
+      Notify("info", "Please check credentials entered")
+    } else {
+      setLoading(true)
+      SERVICES.login(email, password).then((res) => {
+        setLoading(false)
+        console.log("res", res)
+        Notify("success", "Logged in successfully")
+      }).catch((e) => {
+        setLoading(false)
+        Notify("error", e.response.data)
+      })
+    }
+
+  }
+
 
   return (
     <div className="bg-lightGray h-screen">
@@ -24,6 +59,7 @@ function ProviderLogin() {
           {/* details */}
           <div className="my-5">
             <input
+              ref={emailRef}
               type="text"
               placeholder="Enter your email or phone number"
               className="auth-input "
@@ -38,6 +74,7 @@ function ProviderLogin() {
               </span>
 
               <input
+                ref={passwordRef}
                 className="auth-input"
                 type={passwordShown ? "text" : "password"}
                 placeholder="Password"
@@ -50,8 +87,10 @@ function ProviderLogin() {
                 Forgot Password?
               </span>
             </NavLink>
-            <button className="btn-primary w-full mt-5">Log In</button>
-          </div>
+            <button
+              onClick={() => loginWithEmailAndPass()}
+              disabled={loading}
+              className="btn-primary w-full mt-5">{loading ? <Loader /> : "Log In"}</button> </div>
         </div>
       </div>
     </div>

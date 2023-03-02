@@ -124,13 +124,9 @@ input[type="number"] {
 }
 
 .auth-input {
-  @apply w-full border border-gray rounded-md px-5 py-3;
+  @apply w-full border tracking-wide border-gray rounded-md px-5 py-3;
 }
 
 .auth-social-btn {
   @apply w-full border  border-black px-3 rounded-md my-2 py-3;
-}
-
-.digit-input {
-  @apply border border-gray w-full rounded-md px-2 py-5 text-center text-2xl;
 }

@@ -61,7 +61,7 @@ function App() {
         <Route path="/signup/provider" exact element={<ProviderSignUp />} />
         <Route path="/login/provider" exact element={<ProviderLogin />} />
         <Route
-          path="/auth/provider/validate/:id"
+          path="/auth/provider/validate"
           exact
           element={<ProviderFlow />}
         />

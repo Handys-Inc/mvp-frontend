@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
@@ -18,22 +18,32 @@ function ClientLogin() {
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const [email, setEmail] = useState(null)
-  const [password, setPassword] = useState(null)
+  const emailRef = useRef()
+  const passwordRef = useRef()
+
 
   const [loading, setLoading] = useState(false)
 
   const loginWithEmailAndPass = () => {
     // 
-    setLoading(true)
-    SERVICES.login(email, password).then((res) => {
-      setLoading(false)
-      console.log("res", res)
-      Notify("success", "Logged in successfully")
-    }).catch((e) => {
-      setLoading(false)
-      Notify("error", e.response.data)
-    })
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    if (email.length < 4 || password.length < 4) {
+      Notify("info", "Please check credentials entered")
+    } else {
+      setLoading(true)
+      SERVICES.login(email, password).then((res) => {
+        setLoading(false)
+        console.log("res", res)
+        Notify("success", "Logged in successfully")
+      }).catch((e) => {
+        setLoading(false)
+        Notify("error", e.response.data)
+      })
+    }
+
   }
 
 
@@ -51,8 +61,7 @@ function ClientLogin() {
           <div className="my-5">
             <input
               type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              ref={emailRef}
               placeholder="Enter your email or phone number"
               className="auth-input "
             />
@@ -67,8 +76,7 @@ function ClientLogin() {
 
               <input
                 className="auth-input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                ref={passwordRef}
                 type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 autoComplete="off"
@@ -83,7 +91,7 @@ function ClientLogin() {
 
             <button
               onClick={() => loginWithEmailAndPass()}
-              disabled={email === null || password === null || loading}
+              disabled={loading}
               className="btn-primary w-full mt-5">{loading ? <Loader /> : "Log In"}</button>
 
 
