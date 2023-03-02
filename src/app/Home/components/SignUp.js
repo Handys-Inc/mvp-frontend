@@ -2,13 +2,37 @@ import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+import Notify from "../../../components/Notify/Notify";
+
+import services from "../../../services";
+
+import Loader from "../../../utils/Loader";
+
 function SignUp() {
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+
   const validate = () => {
-    navigate(`/auth/provider/validate/${email}`, { replace: true });
+    if (email.length < 4 || !email.includes("@")) {
+      Notify("info", "Please enter a valid email");
+    } else {
+      setLoading(true);
+      services
+        .verifyEmail(email)
+        .then((res) => {
+          setLoading(false);
+          console.log("res", res.data, res.status);
+          navigate(`/auth/provider/validate?step=1`, { state: email });
+        })
+        .catch((e) => {
+          setLoading(false);
+          Notify("error", "Error occured, Please try again");
+          console.log("error", e);
+        });
+    }
   };
   return (
     <div className="pb-10 md:pb-0">
@@ -31,10 +55,10 @@ function SignUp() {
           onClick={() => {
             validate();
           }}
-          disabled={email.length < 5}
+          disabled={email.length < 4 || !email.includes("@") || loading}
           className="btn-primary absolute right-2 md:right-1"
         >
-          Sign Up
+          {loading ? <Loader /> : " Sign Up"}
         </button>
       </div>
     </div>

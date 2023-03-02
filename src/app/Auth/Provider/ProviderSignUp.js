@@ -1,19 +1,40 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
-// icons
-import { BsArrowRight } from "react-icons/bs";
-
 import { useNavigate } from "react-router-dom";
+import Notify from "../../../components/Notify/Notify";
+import Loader from "../../../utils/Loader";
+
+import services from "../../../services";
 
 function ProviderSignUp() {
-  const [email, setEmail] = useState("");
+  const emailRef = useRef();
+
+  const [loading, setLoading] = React.useState(false);
 
   const navigate = useNavigate();
 
   const validate = () => {
-    navigate(`/auth/provider/validate/${email}`, { replace: true });
+    const email = emailRef.current.value;
+
+    if (email.length < 4 || !email.includes("@")) {
+      Notify("info", "Please enter a valid email");
+    } else {
+      setLoading(true);
+      services
+        .verifyEmail(email)
+        .then((res) => {
+          setLoading(false);
+          console.log("res", res.data, res.status);
+          navigate(`/auth/provider/validate?step=1`, { state: email });
+        })
+        .catch((e) => {
+          setLoading(false);
+          Notify("error", "Error occured, Please try again");
+          console.log("error", e);
+        });
+    }
   };
 
   return (
@@ -28,7 +49,6 @@ function ProviderSignUp() {
           {/* details */}
           <div className="my-5">
             <form
-              disabled={email.length < 5}
               onSubmit={(e) => {
                 e.preventDefault();
                 validate();
@@ -37,21 +57,20 @@ function ProviderSignUp() {
               {" "}
               <input
                 type="text"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                ref={emailRef}
                 placeholder="Enter your email or phone number"
                 className="auth-input"
               />
             </form>
 
             <button
-              disabled={email.length < 5}
+              disabled={loading}
               onClick={() => {
                 validate();
               }}
               className="btn-primary w-full my-5"
             >
-              Continue
+              {loading ? <Loader /> : "Continue"}
             </button>
             <p className="text-xs font-light text-gray my-5 text-center">
               {" "}

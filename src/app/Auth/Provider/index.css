@@ -1,0 +1,11 @@
+.custom-otp > input {
+  @apply border border-gray w-20 h-20 font-bold rounded-md  text-center text-3xl;
+}
+
+.custom-otp {
+  @apply w-full;
+}
+
+.custom-otp > input {
+  width: 80px !important;
+}
