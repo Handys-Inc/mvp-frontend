@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
 
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import FlowHeader from "./FlowHeader";
 
+import Loader from "../../../../utils/Loader";
+
+import { AuthContext } from "../../AuthContext";
+
 function Terms() {
   let navigate = useNavigate();
+
+  let { signUp, loading } = useContext(AuthContext);
+
+  const [checked, setChecked] = useState(false);
+
   return (
     <div className="bg-lightGray h-screen">
       <FlowHeader />
@@ -26,14 +35,18 @@ function Terms() {
             <NavLink to="/privacy-notice">
               <span className="text-primary font-bold">Privacy Notice</span>{" "}
             </NavLink>
-            . I am at least 18 years of age.
+            .I am at least 18 years of age.
           </p>
           <div className="my-5">
             <hr className="text-gray" />
             <div className="flex justify-between my-5">
               <p>Agree</p>
               <div>
-                <input type="checkbox" />
+                <input
+                  checked={checked}
+                  onChange={() => setChecked(!checked)}
+                  type="checkbox"
+                />
               </div>
             </div>
           </div>
@@ -45,9 +58,14 @@ function Terms() {
               <BsArrowLeft className="mr-2 inline-block" />
               Back{" "}
             </button>
-            <NavLink to="/auth/provider/validate?step=4">
-              <button className="btn-primary ">Finish</button>
-            </NavLink>
+
+            <button
+              onClick={() => signUp()}
+              disabled={!checked || loading}
+              className="btn-primary "
+            >
+              {loading ? <Loader /> : "Finish"}
+            </button>
           </div>
         </div>
       </div>

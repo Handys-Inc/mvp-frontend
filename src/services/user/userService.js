@@ -30,13 +30,34 @@ export const verifyEmail = (email) => {
 };
 
 export const verifyOTP = (code) => {
-  console.log("verigfying with, code", code);
   const data = JSON.stringify({
     verificationToken: code,
   });
   return axios({
     method: "POST",
-    url: `${baseURL}/verify-email`,
+    url: `${baseURL}/verify-code`,
+    data: data,
+    headers: headers,
+  });
+};
+
+export const signUpNewUser = (
+  firstName,
+  lastName,
+  email,
+  password,
+  userAccess
+) => {
+  const data = JSON.stringify({
+    firstName,
+    lastName,
+    email,
+    password,
+    userAccess,
+  });
+  return axios({
+    method: "POST",
+    url: `${baseURL}/signup`,
     data: data,
     headers: headers,
   });

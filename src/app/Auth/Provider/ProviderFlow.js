@@ -21,45 +21,24 @@ function ProviderFlow() {
 
   // step
 
-  // data
-  const [email, setEmail] = useState(location.state);
-  const [firstName, setFirstName] = useState("");
-
-  let data = {
-    firstName,
-    lastName: "Doe",
-    email,
-    password: "password",
-    token:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiZXhwIjoxNjc3MTg0MDE5LCJpYXQiOjE2NzcxODA0MTl9.wtSmYxJKANEX5iTisJ8rjlJkj4fsq86s06MWXJYL2p4",
-    userAccess: "provider",
-  };
-
-  let functions = {
-    setEmail,
-    setFirstName,
-  };
-
   switch (step) {
     case 0:
-      return (
-        <Code data={data} functions={functions} step={step} setStep={setStep} />
-      );
+      return <Code entry={location.state} />;
 
     case 1:
-      return <Data step={step} setStep={setStep} />;
+      return <Data />;
 
     case 2:
-      return <Bio step={step} setStep={setStep} />;
+      return <Bio />;
 
     case 3:
-      return <Password step={step} setStep={setStep} />;
+      return <Password />;
 
     case 4:
-      return <Terms step={step} setStep={setStep} />;
+      return <Terms />;
 
     default:
-      return <Code step={step} setStep={setStep} />;
+      return <Code />;
   }
 }
 
