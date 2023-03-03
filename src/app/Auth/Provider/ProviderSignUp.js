@@ -1,40 +1,18 @@
-import React, { useRef } from "react";
+import React, { useContext, useState } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
-import { useNavigate } from "react-router-dom";
-import Notify from "../../../components/Notify/Notify";
 import Loader from "../../../utils/Loader";
 
-import services from "../../../services";
+import { AuthContext } from "../AuthContext";
 
 function ProviderSignUp() {
-  const emailRef = useRef();
+  const [entry, setEntry] = useState("");
 
-  const [loading, setLoading] = React.useState(false);
-
-  const navigate = useNavigate();
+  let { sendVerification, loading } = useContext(AuthContext);
 
   const validate = () => {
-    const email = emailRef.current.value;
-
-    if (email.length < 4 || !email.includes("@")) {
-      Notify("info", "Please enter a valid email");
-    } else {
-      setLoading(true);
-      services
-        .verifyEmail(email)
-        .then((res) => {
-          setLoading(false);
-          console.log("res", res.data, res.status);
-          navigate(`/auth/provider/validate?step=1`, { state: email });
-        })
-        .catch((e) => {
-          setLoading(false);
-          Notify("error", "Error occured, Please try again");
-          console.log("error", e);
-        });
-    }
+    sendVerification(entry, "provider");
   };
 
   return (
@@ -57,14 +35,15 @@ function ProviderSignUp() {
               {" "}
               <input
                 type="text"
-                ref={emailRef}
+                value={entry}
+                onChange={(e) => setEntry(e.target.value)}
                 placeholder="Enter your email or phone number"
                 className="auth-input"
               />
             </form>
 
             <button
-              disabled={loading}
+              disabled={loading || entry.length < 5}
               onClick={() => {
                 validate();
               }}

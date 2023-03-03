@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
 import { NavLink } from "react-router-dom";
+
 import FlowHeader from "./FlowHeader";
 
 import { useNavigate } from "react-router-dom";
@@ -9,15 +10,14 @@ import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 
 import Loader from "../../../../utils/Loader";
-import services from "../../../../services";
-import Notify from "../../../../components/Notify/Notify";
+import { AuthContext } from "../../AuthContext";
 
-function Code({ data, step, setStep }) {
+function Code({ entry }) {
   const navigate = useNavigate();
 
   const [code, setCode] = useState("");
 
-  const [loading, setLoading] = useState(false);
+  let { loading, verifyUserOTP } = useContext(AuthContext);
 
   const [allow, setAllow] = useState(false);
 
@@ -28,19 +28,7 @@ function Code({ data, step, setStep }) {
   }, [code]);
 
   const checkCode = () => {
-    setLoading(true);
-    services
-      .verifyOTP(code)
-      .then((res) => {
-        setLoading(false);
-        console.log("verify?", res);
-        navigate(`/auth/provider/validate?step=2`);
-      })
-      .catch((e) => {
-        setLoading(false);
-        Notify("error", e.message);
-        console.log("error verifying", e);
-      });
+    verifyUserOTP(code);
   };
 
   return (
@@ -50,7 +38,7 @@ function Code({ data, step, setStep }) {
       <div className="auth-center">
         <div className="bg-lightGray md:bg-white md:shadow-md w-full md:w-[38rem] rounded-2xl md:p-10 p-2">
           <h1 className="text-left text-2xl md:text-3xl  font-semibold">
-            Enter the 4-digit code sent to <br /> {data.email}
+            Enter the 4-digit code sent to <br /> {entry}
           </h1>
           <div className="my-5">
             <OtpInput

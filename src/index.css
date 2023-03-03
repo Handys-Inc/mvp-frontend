@@ -49,6 +49,9 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  accent-color: #ce1449;
+}
 
 /* remove outline from all inputs  */
 textarea:focus,

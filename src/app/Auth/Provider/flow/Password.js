@@ -1,29 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
-import Navbar from "../../../../components/Navbar/Navbar";
+import { useNavigate } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-import { useParams, NavLink } from "react-router-dom";
-
-import logo from "../../../../assets/logo/logo.svg";
+import FlowHeader from "./FlowHeader";
+import { AuthContext } from "../../AuthContext";
 
 function Password({ step, setStep }) {
-  const { id } = useParams();
+  let navigate = useNavigate();
 
-  const [validated, setValidated] = useState(false);
+  let { password, setPassword } = useContext(AuthContext);
 
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
 
   return (
     <div className="bg-lightGray h-screen">
-      <NavLink to="/">
-        <img className="mt-2 mx-2 w-20 md:w-28" src={logo} alt="logo" />
-      </NavLink>
-
+      <FlowHeader />
       <div className="auth-center">
         <div className="bg-lightGray md:bg-white md:shadow-md w-full md:w-[38rem] rounded-2xl md:p-10 p-2">
           <h1 className="text-left text-2xl md:text-3xl  font-semibold">
@@ -43,6 +41,8 @@ function Password({ step, setStep }) {
 
             <input
               className="auth-input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type={passwordShown ? "text" : "password"}
               placeholder="Create your password"
               autoComplete="off"
@@ -51,14 +51,16 @@ function Password({ step, setStep }) {
           <div className="flex justify-between mt-5">
             <button className="btn-primary-outline">
               <BsArrowLeft
-                onClick={() => setStep(step - 1)}
+                onClick={() => navigate(-1)}
                 className="mr-2 inline-block"
               />
               Back{" "}
             </button>
-            <button onClick={() => setStep(step + 1)} className="btn-primary ">
-              Next <BsArrowRight className="ml-2 inline-block" />
-            </button>
+            <NavLink to="/auth/provider/validate?step=5">
+              <button disabled={password.length < 8} className="btn-primary ">
+                Next <BsArrowRight className="ml-2 inline-block" />
+              </button>
+            </NavLink>
           </div>
         </div>
       </div>

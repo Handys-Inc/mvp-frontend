@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
@@ -7,9 +7,14 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import FlowHeader from "./FlowHeader";
+import { AuthContext } from "../../AuthContext";
 
-function Bio({ step, setStep }) {
+function Bio() {
   let navigate = useNavigate();
+
+  let { firstName, setFirstName, lastName, setLastName } =
+    useContext(AuthContext);
+
   return (
     <div className="bg-lightGray h-screen">
       <FlowHeader />
@@ -23,11 +28,15 @@ function Bio({ step, setStep }) {
           <div className="mt-5">
             <input
               type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               placeholder="First Name"
               className="auth-input mb-4"
             />
             <input
               type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               placeholder="Last Name"
               className="auth-input "
             />
@@ -40,8 +49,11 @@ function Bio({ step, setStep }) {
               <BsArrowLeft className="mr-2 inline-block" />
               Back{" "}
             </button>
-            <NavLink to="/auth/provider/validate?step=3">
-              <button className="btn-primary ">
+            <NavLink to="/auth/provider/validate?step=4">
+              <button
+                disabled={firstName.length < 2 || lastName.length < 2}
+                className="btn-primary "
+              >
                 Next <BsArrowRight className="ml-2 inline-block" />
               </button>
             </NavLink>
