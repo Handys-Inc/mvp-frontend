@@ -117,6 +117,34 @@ const AuthContextProvider = (props) => {
       });
   };
 
+  const loginWithEmailAndPass = (email, password, userAccess) => {
+    if (email.length < 4 || password.length < 4) {
+      Notify("info", "Please check information entered");
+    } else {
+      setLoading(true);
+      services
+        .login(email, password)
+        .then((res) => {
+          setLoading(false);
+          console.log("res", res);
+          Notify("success", "Logged in successfully");
+
+          setTimeout(() => {
+            if (userAccess === "customer") {
+              window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
+            }
+            if (userAccess === "provider") {
+              window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
+            }
+          }, 2000);
+        })
+        .catch((e) => {
+          setLoading(false);
+          Notify("error", e.response.data);
+        });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -134,6 +162,7 @@ const AuthContextProvider = (props) => {
         verifyUserOTP,
         loading,
         setLoading,
+        loginWithEmailAndPass,
       }}
     >
       {props.children}

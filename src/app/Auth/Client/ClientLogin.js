@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useRef, useContext } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
@@ -7,45 +7,26 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
 
-import { NavLink } from "react-router-dom";
-
-import SERVICES from '../../../services'
-
 import Loader from "../../../utils/Loader";
-import Notify from "../../../components/Notify/Notify";
+
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
 
 function ClientLogin() {
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  let { loginWithEmailAndPass, loading } = useContext(AuthContext);
 
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  const [loading, setLoading] = useState(false)
-
-  const loginWithEmailAndPass = () => {
-    // 
-
+  const login = () => {
+    //
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-
-    if (email.length < 4 || password.length < 4) {
-      Notify("info", "Please check credentials entered")
-    } else {
-      setLoading(true)
-      SERVICES.login(email, password).then((res) => {
-        setLoading(false)
-        console.log("res", res)
-        Notify("success", "Logged in successfully")
-      }).catch((e) => {
-        setLoading(false)
-        Notify("error", e.response.data)
-      })
-    }
-
-  }
-
+    loginWithEmailAndPass(email, password, "customer");
+  };
 
   return (
     <div className="bg-lightGray h-screen">
@@ -54,7 +35,7 @@ function ClientLogin() {
       <div className="auth-center">
         <div className="bg-lightGray md:bg-white md:shadow-md w-full md:w-[38rem] rounded-2xl md:p-10 p-2">
           <h1 className="text-left text-2xl md:text-3xl w-96 font-semibold">
-            Enter your phone number or email and password
+            Log into your account
           </h1>
 
           {/* details */}
@@ -90,11 +71,12 @@ function ClientLogin() {
             </NavLink>
 
             <button
-              onClick={() => loginWithEmailAndPass()}
+              onClick={() => login()}
               disabled={loading}
-              className="btn-primary w-full mt-5">{loading ? <Loader /> : "Log In"}</button>
-
-
+              className="btn-primary w-full mt-5"
+            >
+              {loading ? <Loader /> : "Log In"}
+            </button>
 
             <p className="text-gray text-sm my-3 text-center w-full">or</p>
             <button className="auth-social-btn">

@@ -1,10 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
-
-import Notify from "../../../components/Notify/Notify";
-
-import SERVICES from "../../../services";
 
 import Loader from "../../../utils/Loader";
 
@@ -12,39 +8,23 @@ import Loader from "../../../utils/Loader";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
 
 function ProviderLogin() {
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
+  let { loginWithEmailAndPass, loading } = useContext(AuthContext);
 
-  const [loading, setLoading] = useState(false)
-
-  const loginWithEmailAndPass = () => {
-    // 
-
+  const login = () => {
+    //
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-
-    if (email.length < 4 || password.length < 4) {
-      Notify("info", "Please check credentials entered")
-    } else {
-      setLoading(true)
-      SERVICES.login(email, password).then((res) => {
-        setLoading(false)
-        console.log("res", res)
-        Notify("success", "Logged in successfully")
-      }).catch((e) => {
-        setLoading(false)
-        Notify("error", e.response.data)
-      })
-    }
-
-  }
-
+    loginWithEmailAndPass(email, password, "provider");
+  };
 
   return (
     <div className="bg-lightGray h-screen">
@@ -64,7 +44,6 @@ function ProviderLogin() {
               placeholder="Enter your email or phone number"
               className="auth-input "
             />
-
             <div className="relative mt-5 mb-3">
               <span
                 className="text-gray absolute cursor-pointer right-4 mt-4 ml-5"
@@ -81,16 +60,19 @@ function ProviderLogin() {
                 autoComplete="off"
               />
             </div>
-
             <NavLink to="/forgot-password">
               <span className="text-sm text-primary cursor-pointer">
                 Forgot Password?
               </span>
             </NavLink>
             <button
-              onClick={() => loginWithEmailAndPass()}
+              onClick={() => login()}
               disabled={loading}
-              className="btn-primary w-full mt-5">{loading ? <Loader /> : "Log In"}</button> </div>
+              className="btn-primary w-full mt-5"
+            >
+              {loading ? <Loader /> : "Log In"}
+            </button>{" "}
+          </div>
         </div>
       </div>
     </div>
