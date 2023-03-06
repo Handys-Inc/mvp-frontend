@@ -21,8 +21,8 @@ const AuthContextProvider = (props) => {
   // data
   const [email, setEmail] = useState(dataFromSession.email || null);
   const [phone, setPhone] = useState(dataFromSession.phone || null);
-  const [firstName, setFirstName] = useState(dataFromSession.firstName);
-  const [lastName, setLastName] = useState(dataFromSession.lastName);
+  const [firstName, setFirstName] = useState(dataFromSession.firstName || "");
+  const [lastName, setLastName] = useState(dataFromSession.lastName || "");
   const [userAccess, setUserAccess] = useState(dataFromSession.userAccess);
   const [password, setPassword] = useState(dataFromSession.password || "");
 
@@ -46,7 +46,6 @@ const AuthContextProvider = (props) => {
 
   const sendVerification = (entry, userAccess) => {
     // check if email or phone number then validate and call right endpoint
-
     setUserAccess(userAccess);
     if (entry.includes("@") && entry.includes(".")) {
       // it is an EMAIL
@@ -58,7 +57,7 @@ const AuthContextProvider = (props) => {
           setLoading(false);
           console.log("res email entry", res.data);
           Notify("info", res.data.message);
-          navigate(`/auth/provider/validate?step=1`, { state: entry });
+          navigate(`/auth/validate?step=1`, { state: entry });
         })
         .catch((e) => {
           setLoading(false);
@@ -80,7 +79,7 @@ const AuthContextProvider = (props) => {
         setLoading(false);
         console.log("verify success?", res.data);
         Notify("success", res.data.message);
-        navigate(`/auth/provider/validate?step=2`);
+        navigate(`/auth/validate?step=2`);
       })
       .catch((e) => {
         setLoading(false);
@@ -99,14 +98,14 @@ const AuthContextProvider = (props) => {
         Notify("success", "Signed up successfully");
         Notify("info", "Redirecting...");
 
-        setTimeout(() => {
-          if (userAccess === "customer") {
-            window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
-          }
-          if (userAccess === "provider") {
-            window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
-          }
-        }, 2000);
+        // setTimeout(() => {
+        //   if (userAccess === "customer") {
+        //     window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
+        //   }
+        //   if (userAccess === "service") {
+        //     window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
+        //   }
+        // }, 2000);
 
         console.log("signiing up", res);
       })

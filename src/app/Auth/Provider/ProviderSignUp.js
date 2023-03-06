@@ -12,7 +12,7 @@ function ProviderSignUp() {
   let { sendVerification, loading } = useContext(AuthContext);
 
   const validate = () => {
-    sendVerification(entry, "provider");
+    sendVerification(entry, "service");
   };
 
   return (

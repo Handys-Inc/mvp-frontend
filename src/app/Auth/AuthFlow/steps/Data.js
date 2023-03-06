@@ -1,45 +1,48 @@
 import React, { useContext } from "react";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-
-import { NavLink } from "react-router-dom";
+import FlowHeader from "./FlowHeader";
 
 import { useNavigate } from "react-router-dom";
 
-import FlowHeader from "./FlowHeader";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthContext";
 
-function Bio() {
+function Data() {
   let navigate = useNavigate();
 
-  let { firstName, setFirstName, lastName, setLastName } =
-    useContext(AuthContext);
+  let { email, setEmail, phone, setPhone } = useContext(AuthContext);
 
   return (
     <div className="bg-lightGray h-screen">
       <FlowHeader />
-
       <div className="auth-center">
         <div className="bg-lightGray md:bg-white md:shadow-md w-full md:w-[38rem] rounded-2xl md:p-10 p-2">
           <h1 className="text-left text-2xl md:text-3xl  font-semibold">
-            What's your name
+            Enter your {email === null ? "email address" : "phone number"}
           </h1>
 
           <div className="mt-5">
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="First Name"
-              className="auth-input mb-4"
-            />
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="Last Name"
-              className="auth-input "
-            />
+            {" "}
+            {email === null ? (
+              // take email
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address"
+                className="auth-input mb-4"
+              />
+            ) : (
+              // take phone
+              <input
+                type="number"
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                placeholder="Enter your phone number"
+                className="auth-input mb-4"
+              />
+            )}
           </div>
           <div className="flex justify-between mt-5">
             <button
@@ -49,11 +52,8 @@ function Bio() {
               <BsArrowLeft className="mr-2 inline-block" />
               Back{" "}
             </button>
-            <NavLink to="/auth/provider/validate?step=4">
-              <button
-                disabled={firstName.length < 2 || lastName.length < 2}
-                className="btn-primary "
-              >
+            <NavLink to="/auth/validate?step=3">
+              <button className="btn-primary ">
                 Next <BsArrowRight className="ml-2 inline-block" />
               </button>
             </NavLink>
@@ -64,4 +64,4 @@ function Bio() {
   );
 }
 
-export default Bio;
+export default Data;

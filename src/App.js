@@ -21,7 +21,7 @@ import ClientLogin from "./app/Auth/Client/ClientLogin";
 import Validate from "./app/Auth/Validate/Validate";
 import ForgotPassword from "./app/Auth/Forgot/ForgotPassword";
 import Reset from "./app/Auth/Reset/Reset";
-import ProviderFlow from "./app/Auth/Provider/ProviderFlow";
+import AuthFlow from "./app/Auth/AuthFlow/AuthFlow";
 
 // HELP CENTER
 import HelpCenter from "./help/HelpCenter";
@@ -64,11 +64,9 @@ function App() {
           {/* Specific Auth Routes Provider */}
           <Route path="/signup/provider" exact element={<ProviderSignUp />} />
           <Route path="/login/provider" exact element={<ProviderLogin />} />
-          <Route
-            path="/auth/provider/validate"
-            exact
-            element={<ProviderFlow />}
-          />
+
+          {/* Authentication flow */}
+          <Route path="/auth/validate" exact element={<AuthFlow />} />
 
           {/* Auth validation */}
           <Route path="/auth/validate/:id" exact element={<Validate />} />

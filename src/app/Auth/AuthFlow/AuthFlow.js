@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Code from "./flow/Code";
-import Data from "./flow/Data";
-import Bio from "./flow/Bio";
-import Password from "./flow/Password";
-import Terms from "./flow/Terms";
+import Code from "./steps/Code";
+import Data from "./steps/Data";
+import Bio from "./steps/Bio";
+import Password from "./steps/Password";
+import Terms from "./steps/Terms";
 
 import { useLocation } from "react-router-dom";
 
