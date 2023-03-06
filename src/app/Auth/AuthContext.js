@@ -15,6 +15,30 @@ export function useAuth() {
 }
 
 const AuthContextProvider = (props) => {
+  // Getting shared Auth between all domains
+
+  useEffect(() => {
+    const data = {
+      _id: "64061a43def07f66fb1bef5b",
+      firstName: "Alice",
+      lastName: "Iris",
+      email: "customer@handys.ca",
+      userAccess: ["customer"],
+      userLevel: "user",
+    };
+
+    function postCrossDomainMessage(msg) {
+      console.log("sending message to ifr")
+      var win = document.getElementById("ifr").contentWindow;
+      win.postMessage(msg, "http://localhost:3001");
+    }
+
+    setTimeout(() => {
+      // this is just example
+      postCrossDomainMessage(data);
+    }, 2000);
+  }, []);
+
   // navigate
   const navigate = useNavigate();
 
@@ -71,20 +95,20 @@ const AuthContextProvider = (props) => {
     }
   };
 
-  const verifyUserOTP = (code) => {
+  const verifyUserOTP = (code, setCode) => {
     setLoading(true);
     services
       .verifyOTP(code)
       .then((res) => {
         setLoading(false);
-        console.log("verify success?", res.data);
         Notify("success", res.data.message);
         navigate(`/auth/validate?step=2`);
       })
       .catch((e) => {
         setLoading(false);
-        Notify("error", e.message);
-        console.log("error verifying", e);
+
+        Notify("error", e.response.data.message);
+        setCode("");
       });
   };
 
@@ -97,6 +121,8 @@ const AuthContextProvider = (props) => {
         setLoading(false);
         Notify("success", "Signed up successfully");
         Notify("info", "Redirecting...");
+
+        // store into local storage
 
         // setTimeout(() => {
         //   if (userAccess === "customer") {
@@ -116,6 +142,18 @@ const AuthContextProvider = (props) => {
       });
   };
 
+  // sign up res
+  //   {
+  //     "_id": "64061a43def07f66fb1bef5b",
+  //     "firstName": "Alice",
+  //     "lastName": "Iris",
+  //     "email": "customer@handys.ca",
+  //     "userAccess": [
+  //         "customer"
+  //     ],
+  //     "userLevel": "user"
+  // }
+
   const sendPasswordReset = (email) => {
     if (!email.includes("@") || !email.includes(".")) {
       Notify("info", "Please enter a valid email");
@@ -131,7 +169,6 @@ const AuthContextProvider = (props) => {
         .catch((e) => {
           setLoading(false);
           Notify("error", e.response.data);
-        
         });
     }
   };
@@ -146,6 +183,7 @@ const AuthContextProvider = (props) => {
         .then((res) => {
           setLoading(false);
           console.log("res", res);
+
           Notify("success", "Logged in successfully");
 
           setTimeout(() => {

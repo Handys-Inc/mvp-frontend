@@ -29,7 +29,7 @@ function Code({ entry }) {
   }, [code]);
 
   const checkCode = () => {
-    verifyUserOTP(code);
+    verifyUserOTP(code, setCode);
   };
 
   return (
