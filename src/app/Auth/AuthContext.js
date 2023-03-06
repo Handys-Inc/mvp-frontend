@@ -92,7 +92,7 @@ const AuthContextProvider = (props) => {
     //
     setLoading(true);
     services
-      .signUpNewUser(firstName, lastName, email, userAccess, password)
+      .signUpNewUser(firstName, lastName, email, password, userAccess)
       .then((res) => {
         setLoading(false);
         Notify("success", "Signed up successfully");
@@ -114,6 +114,26 @@ const AuthContextProvider = (props) => {
         Notify("error", "An error occured. Please try again");
         console.log("error signing up", e);
       });
+  };
+
+  const sendPasswordReset = (email) => {
+    if (!email.includes("@") || !email.includes(".")) {
+      Notify("info", "Please enter a valid email");
+    } else {
+      setLoading(true);
+      services
+        .sendPasswordReset(email)
+        .then((res) => {
+          console.log("send pass");
+          setLoading(false);
+          Notify("success", `Sent password reset mail to ${email}`);
+        })
+        .catch((e) => {
+          setLoading(false);
+          Notify("error", e.response.data);
+        
+        });
+    }
   };
 
   const loginWithEmailAndPass = (email, password, userAccess) => {
@@ -162,6 +182,7 @@ const AuthContextProvider = (props) => {
         loading,
         setLoading,
         loginWithEmailAndPass,
+        sendPasswordReset,
       }}
     >
       {props.children}
