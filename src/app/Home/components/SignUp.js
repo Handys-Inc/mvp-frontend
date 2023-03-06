@@ -10,7 +10,7 @@ function SignUp() {
   let { sendVerification, loading } = useContext(AuthContext);
 
   const validate = () => {
-    sendVerification(email, "provider");
+    sendVerification(email, "service");
   };
 
   return (

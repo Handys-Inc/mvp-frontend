@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useRef } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
-// icons
-
-import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
+import Loader from "../../../utils/Loader";
 
 function ForgotPassword() {
+  const emailRef = useRef();
+
+  let { loading, sendPasswordReset } = useContext(AuthContext);
+
+  const sendMail = () => {
+    const email = emailRef.current.value;
+    sendPasswordReset(email);
+  };
+
   return (
     <div className="bg-lightGray h-screen">
       <Navbar />
@@ -21,17 +29,27 @@ function ForgotPassword() {
           </p>
           {/* details */}
           <div className="my-5">
-            <input
-              type="text"
-              placeholder="Your email"
-              className="auth-input "
-            />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMail();
+              }}
+            >
+              <input
+                ref={emailRef}
+                type="text"
+                placeholder="Your email"
+                className="auth-input"
+              />
 
-            <NavLink to="/reset-password">
-              <button className="btn-primary w-full mt-5">
-                Reset Password
+              <button
+                disabled={loading}
+                submit={true}
+                className="btn-primary w-full mt-5"
+              >
+                {loading ? <Loader /> : "Reset Password"}
               </button>
-            </NavLink>
+            </form>
           </div>
         </div>
       </div>

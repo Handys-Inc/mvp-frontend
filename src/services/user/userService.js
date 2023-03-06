@@ -62,3 +62,15 @@ export const signUpNewUser = (
     headers: headers,
   });
 };
+
+export const sendPasswordReset = (email) => {
+  const data = JSON.stringify({
+    email,
+  });
+  return axios({
+    method: "POST",
+    url: `${baseURL}/forgot-password`,
+    data: data,
+    headers: headers,
+  });
+};

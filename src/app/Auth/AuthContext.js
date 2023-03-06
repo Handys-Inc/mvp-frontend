@@ -15,14 +15,38 @@ export function useAuth() {
 }
 
 const AuthContextProvider = (props) => {
+  // Getting shared Auth between all domains
+
+  useEffect(() => {
+    const data = {
+      _id: "64061a43def07f66fb1bef5b",
+      firstName: "Alice",
+      lastName: "Iris",
+      email: "customer@handys.ca",
+      userAccess: ["customer"],
+      userLevel: "user",
+    };
+
+    function postCrossDomainMessage(msg) {
+      console.log("sending message to ifr")
+      var win = document.getElementById("ifr").contentWindow;
+      win.postMessage(msg, "http://localhost:3001");
+    }
+
+    setTimeout(() => {
+      // this is just example
+      postCrossDomainMessage(data);
+    }, 2000);
+  }, []);
+
   // navigate
   const navigate = useNavigate();
 
   // data
   const [email, setEmail] = useState(dataFromSession.email || null);
   const [phone, setPhone] = useState(dataFromSession.phone || null);
-  const [firstName, setFirstName] = useState(dataFromSession.firstName);
-  const [lastName, setLastName] = useState(dataFromSession.lastName);
+  const [firstName, setFirstName] = useState(dataFromSession.firstName || "");
+  const [lastName, setLastName] = useState(dataFromSession.lastName || "");
   const [userAccess, setUserAccess] = useState(dataFromSession.userAccess);
   const [password, setPassword] = useState(dataFromSession.password || "");
 
@@ -46,7 +70,6 @@ const AuthContextProvider = (props) => {
 
   const sendVerification = (entry, userAccess) => {
     // check if email or phone number then validate and call right endpoint
-
     setUserAccess(userAccess);
     if (entry.includes("@") && entry.includes(".")) {
       // it is an EMAIL
@@ -58,7 +81,7 @@ const AuthContextProvider = (props) => {
           setLoading(false);
           console.log("res email entry", res.data);
           Notify("info", res.data.message);
-          navigate(`/auth/provider/validate?step=1`, { state: entry });
+          navigate(`/auth/validate?step=1`, { state: entry });
         })
         .catch((e) => {
           setLoading(false);
@@ -72,20 +95,20 @@ const AuthContextProvider = (props) => {
     }
   };
 
-  const verifyUserOTP = (code) => {
+  const verifyUserOTP = (code, setCode) => {
     setLoading(true);
     services
       .verifyOTP(code)
       .then((res) => {
         setLoading(false);
-        console.log("verify success?", res.data);
         Notify("success", res.data.message);
-        navigate(`/auth/provider/validate?step=2`);
+        navigate(`/auth/validate?step=2`);
       })
       .catch((e) => {
         setLoading(false);
-        Notify("error", e.message);
-        console.log("error verifying", e);
+
+        Notify("error", e.response.data.message);
+        setCode("");
       });
   };
 
@@ -93,20 +116,22 @@ const AuthContextProvider = (props) => {
     //
     setLoading(true);
     services
-      .signUpNewUser(firstName, lastName, email, userAccess, password)
+      .signUpNewUser(firstName, lastName, email, password, userAccess)
       .then((res) => {
         setLoading(false);
         Notify("success", "Signed up successfully");
         Notify("info", "Redirecting...");
 
-        setTimeout(() => {
-          if (userAccess === "customer") {
-            window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
-          }
-          if (userAccess === "provider") {
-            window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
-          }
-        }, 2000);
+        // store into local storage
+
+        // setTimeout(() => {
+        //   if (userAccess === "customer") {
+        //     window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
+        //   }
+        //   if (userAccess === "service") {
+        //     window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
+        //   }
+        // }, 2000);
 
         console.log("signiing up", res);
       })
@@ -115,6 +140,37 @@ const AuthContextProvider = (props) => {
         Notify("error", "An error occured. Please try again");
         console.log("error signing up", e);
       });
+  };
+
+  // sign up res
+  //   {
+  //     "_id": "64061a43def07f66fb1bef5b",
+  //     "firstName": "Alice",
+  //     "lastName": "Iris",
+  //     "email": "customer@handys.ca",
+  //     "userAccess": [
+  //         "customer"
+  //     ],
+  //     "userLevel": "user"
+  // }
+
+  const sendPasswordReset = (email) => {
+    if (!email.includes("@") || !email.includes(".")) {
+      Notify("info", "Please enter a valid email");
+    } else {
+      setLoading(true);
+      services
+        .sendPasswordReset(email)
+        .then((res) => {
+          console.log("send pass");
+          setLoading(false);
+          Notify("success", `Sent password reset mail to ${email}`);
+        })
+        .catch((e) => {
+          setLoading(false);
+          Notify("error", e.response.data);
+        });
+    }
   };
 
   const loginWithEmailAndPass = (email, password, userAccess) => {
@@ -127,6 +183,7 @@ const AuthContextProvider = (props) => {
         .then((res) => {
           setLoading(false);
           console.log("res", res);
+
           Notify("success", "Logged in successfully");
 
           setTimeout(() => {
@@ -163,6 +220,7 @@ const AuthContextProvider = (props) => {
         loading,
         setLoading,
         loginWithEmailAndPass,
+        sendPasswordReset,
       }}
     >
       {props.children}

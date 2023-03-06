@@ -6,6 +6,8 @@ import { NavLink } from "react-router-dom";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
+import Loader from "../../../../utils/Loader";
+
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 import FlowHeader from "./FlowHeader";
@@ -14,7 +16,8 @@ import { AuthContext } from "../../AuthContext";
 function Password({ step, setStep }) {
   let navigate = useNavigate();
 
-  let { password, setPassword } = useContext(AuthContext);
+  let { password, setPassword, userAccess, signUp, loading } =
+    useContext(AuthContext);
 
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
@@ -56,11 +59,25 @@ function Password({ step, setStep }) {
               />
               Back{" "}
             </button>
-            <NavLink to="/auth/provider/validate?step=5">
-              <button disabled={password.length < 8} className="btn-primary ">
-                Next <BsArrowRight className="ml-2 inline-block" />
+
+            {userAccess === "service" ? (
+              // PROVIDER
+              <NavLink to="/auth/validate?step=5">
+                <button disabled={password.length < 8} className="btn-primary ">
+                  Next <BsArrowRight className="ml-2 inline-block" />
+                </button>
+              </NavLink>
+            ) : (
+              // CUSTOMER
+
+              <button
+                onClick={() => signUp()}
+                disabled={password.length < 8 || loading}
+                className="btn-primary "
+              >
+                {loading? <Loader/> : "Finish"}
               </button>
-            </NavLink>
+            )}
           </div>
         </div>
       </div>

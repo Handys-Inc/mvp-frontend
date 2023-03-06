@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
+
+import { AuthContext } from "../AuthContext";
+
+import Loader from "../../../utils/Loader";
 
 // icons
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebook } from "react-icons/fa";
 
-import { useNavigate } from "react-router-dom";
 
 function ClientSignUp() {
   const [email, setEmail] = useState("");
 
-  const navigate = useNavigate();
+  let { sendVerification, loading } = useContext(AuthContext);
+
 
   const validate = () => {
-    navigate(`/auth/validate/${email}`, { replace: true });
+    sendVerification(email, "customer");
   };
 
   return (
@@ -44,13 +48,13 @@ function ClientSignUp() {
                 className="auth-input"
               />
               <button
-                disabled={email.length < 5}
+                disabled={email.length < 5 || loading}
                 onClick={() => {
                   validate();
                 }}
                 className="btn-primary w-full my-5"
               >
-                Continue
+                {loading ? <Loader /> : "Continue"}
               </button>
             </form>
 

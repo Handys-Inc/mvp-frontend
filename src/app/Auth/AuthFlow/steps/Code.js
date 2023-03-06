@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 
 import Loader from "../../../../utils/Loader";
+
 import { AuthContext } from "../../AuthContext";
 
 function Code({ entry }) {
@@ -28,7 +29,7 @@ function Code({ entry }) {
   }, [code]);
 
   const checkCode = () => {
-    verifyUserOTP(code);
+    verifyUserOTP(code, setCode);
   };
 
   return (
