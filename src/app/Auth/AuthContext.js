@@ -16,27 +16,53 @@ export function useAuth() {
 
 const AuthContextProvider = (props) => {
   // Getting shared Auth between all domains
+  // const customerFrame = document.getElementById("frame-app");
+
+  // function sendMessage(windowObj, payload) {
+  //   if (windowObj) {
+  //     console.log("posting message payload", payload);
+  //     windowObj.contentWindow.postMessage(payload, "http://localhost:3001");
+  //     window.open("http://localhost:3001", "_self");
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   const data = {
+  //     _id: "64061a43def07f66fb1bef5b",
+  //     firstName: "Alice",
+  //     lastName: "Iris",
+  //     email: "customer@handys.ca",
+  //     userAccess: ["customer"],
+  //     userLevel: "user",
+  //   };
+
+  //   // function postCrossDomainMessage(msg) {
+  //   //   console.log("sending message to ifr")
+  //   //   var win = document.getElementById("ifr").contentWindow;
+  //   //   win.postMessage(msg, "http://localhost:3001");
+  //   // }
+
+  //   setTimeout(() => {
+  //     localStorage.setItem("myData", "Hello from localhost:3000!");
+  //     // window.location.href = "http://localhost:3001";
+  //     window.postMessage({ data: localStorage.getItem("myData") }, "*");
+
+  //     window.open("http://localhost:3001", "_self");
+  //   }, 2000);
+  // }, []);
 
   useEffect(() => {
-    const data = {
-      _id: "64061a43def07f66fb1bef5b",
-      firstName: "Alice",
-      lastName: "Iris",
-      email: "customer@handys.ca",
-      userAccess: ["customer"],
-      userLevel: "user",
+    const targetWindow = window.open("http://localhost:3001", "_self");
+
+    targetWindow.onload = function () {
+      console.log("running onload function");
+      const targetOrigin = "http://localhost:3001";
+      const messageData = {
+        hello: "hello",
+      };
+
+      targetWindow.postMessage(messageData, targetOrigin);
     };
-
-    function postCrossDomainMessage(msg) {
-      console.log("sending message to ifr")
-      var win = document.getElementById("ifr").contentWindow;
-      win.postMessage(msg, "http://localhost:3001");
-    }
-
-    setTimeout(() => {
-      // this is just example
-      postCrossDomainMessage(data);
-    }, 2000);
   }, []);
 
   // navigate
