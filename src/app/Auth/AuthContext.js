@@ -196,14 +196,13 @@ const AuthContextProvider = (props) => {
     }
   };
 
-   // deleting/destroying user details upon logout
+  // deleting/destroying user details upon logout
   const logOut = () => {
-    removeCookie("user")
+    removeCookie("user");
     localStorage.clear();
     window.location.reload();
     return false;
   };
-
 
   return (
     <AuthContext.Provider
