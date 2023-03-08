@@ -1,70 +1,20 @@
 import React, { useState, useContext, useEffect, createContext } from "react";
 
+import { useCookies } from "react-cookie";
+
 import services from "../../services";
 import Notify from "../../components/Notify/Notify";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
-const dataFromSession = JSON.parse(
-  sessionStorage.getItem("h@ndy$us3r") || "{}"
-);
+const dataFromSession = JSON.parse(sessionStorage.getItem("newUser") || "{}");
 
 export function useAuth() {
   return useContext(AuthContext);
 }
 
 const AuthContextProvider = (props) => {
-  // Getting shared Auth between all domains
-  // const customerFrame = document.getElementById("frame-app");
-
-  // function sendMessage(windowObj, payload) {
-  //   if (windowObj) {
-  //     console.log("posting message payload", payload);
-  //     windowObj.contentWindow.postMessage(payload, "http://localhost:3001");
-  //     window.open("http://localhost:3001", "_self");
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   const data = {
-  //     _id: "64061a43def07f66fb1bef5b",
-  //     firstName: "Alice",
-  //     lastName: "Iris",
-  //     email: "customer@handys.ca",
-  //     userAccess: ["customer"],
-  //     userLevel: "user",
-  //   };
-
-  //   // function postCrossDomainMessage(msg) {
-  //   //   console.log("sending message to ifr")
-  //   //   var win = document.getElementById("ifr").contentWindow;
-  //   //   win.postMessage(msg, "http://localhost:3001");
-  //   // }
-
-  //   setTimeout(() => {
-  //     localStorage.setItem("myData", "Hello from localhost:3000!");
-  //     // window.location.href = "http://localhost:3001";
-  //     window.postMessage({ data: localStorage.getItem("myData") }, "*");
-
-  //     window.open("http://localhost:3001", "_self");
-  //   }, 2000);
-  // }, []);
-
-  useEffect(() => {
-    const targetWindow = window.open("http://localhost:3001", "_self");
-
-    targetWindow.onload = function () {
-      console.log("running onload function");
-      const targetOrigin = "http://localhost:3001";
-      const messageData = {
-        hello: "hello",
-      };
-
-      targetWindow.postMessage(messageData, targetOrigin);
-    };
-  }, []);
-
   // navigate
   const navigate = useNavigate();
 
@@ -76,6 +26,21 @@ const AuthContextProvider = (props) => {
   const [userAccess, setUserAccess] = useState(dataFromSession.userAccess);
   const [password, setPassword] = useState(dataFromSession.password || "");
 
+  // Current Authenticated user
+  const [currentUser, setCurrentUser] = useState(false);
+
+  // cookies
+  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+
+  // useeffect to update current user
+  useEffect(() => {
+    if (cookies.user === undefined) {
+      setCurrentUser(null);
+    } else {
+      setCurrentUser(cookies.user);
+    }
+  }, [cookies]);
+
   let functions = {
     setEmail,
     setPhone,
@@ -86,7 +51,7 @@ const AuthContextProvider = (props) => {
   // update session on updates
   useEffect(() => {
     sessionStorage.setItem(
-      "h@ndy$us3r",
+      "newUser",
       JSON.stringify({ email, phone, firstName, lastName, userAccess })
     );
   }, [email, phone, firstName, lastName, password, userAccess]);
@@ -149,15 +114,17 @@ const AuthContextProvider = (props) => {
         Notify("info", "Redirecting...");
 
         // store into local storage
-
-        // setTimeout(() => {
-        //   if (userAccess === "customer") {
-        //     window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
-        //   }
-        //   if (userAccess === "service") {
-        //     window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
-        //   }
-        // }, 2000);
+        setCookie("user", JSON.stringify(res.data), {
+          path: "/",
+        });
+        setTimeout(() => {
+          if (userAccess === "customer") {
+            window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
+          }
+          if (userAccess === "service") {
+            window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
+          }
+        }, 2000);
 
         console.log("signiing up", res);
       })
@@ -167,18 +134,6 @@ const AuthContextProvider = (props) => {
         console.log("error signing up", e);
       });
   };
-
-  // sign up res
-  //   {
-  //     "_id": "64061a43def07f66fb1bef5b",
-  //     "firstName": "Alice",
-  //     "lastName": "Iris",
-  //     "email": "customer@handys.ca",
-  //     "userAccess": [
-  //         "customer"
-  //     ],
-  //     "userLevel": "user"
-  // }
 
   const sendPasswordReset = (email) => {
     if (!email.includes("@") || !email.includes(".")) {
@@ -208,9 +163,22 @@ const AuthContextProvider = (props) => {
         .login(email, password)
         .then((res) => {
           setLoading(false);
-          console.log("res", res);
 
           Notify("success", "Logged in successfully");
+          // set cookies
+
+          if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+            // dev code
+            setCookie("user", JSON.stringify(res.data), {
+              path: "/",
+            });
+          } else {
+            // production code
+            setCookie("user", JSON.stringify(res.data), {
+              path: "/",
+              domain: "netlify.app",
+            });
+          }
 
           setTimeout(() => {
             if (userAccess === "customer") {
@@ -219,7 +187,7 @@ const AuthContextProvider = (props) => {
             if (userAccess === "provider") {
               window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
             }
-          }, 2000);
+          }, 1000);
         })
         .catch((e) => {
           setLoading(false);
@@ -228,9 +196,20 @@ const AuthContextProvider = (props) => {
     }
   };
 
+   // deleting/destroying user details upon logout
+  const logOut = () => {
+    removeCookie("user")
+    localStorage.clear();
+    window.location.reload();
+    return false;
+  };
+
+
   return (
     <AuthContext.Provider
       value={{
+        logOut,
+        currentUser,
         email,
         firstName,
         lastName,

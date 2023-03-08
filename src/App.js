@@ -34,6 +34,7 @@ import ProviderCategory from "./help/provider/ProviderCategory";
 
 // auth context
 import AuthContextProvider from "./app/Auth/AuthContext";
+import { CookiesProvider } from "react-cookie";
 
 function App() {
   return (
@@ -49,50 +50,52 @@ function App() {
         draggable
         pauseOnHover
       />
-      <AuthContextProvider>
-        <Routes>
-          {/*General Routes */}
-          <Route path="/" exact element={<Home />} />
-          {/* Auth Routes for Sign up and Login (Client and Provider) */}
-          <Route path="/login" exact element={<LogIn />} />
-          <Route path="/signup" exact element={<SignUp />} />
+      <CookiesProvider>
+        <AuthContextProvider>
+          <Routes>
+            {/*General Routes */}
+            <Route path="/" exact element={<Home />} />
+            {/* Auth Routes for Sign up and Login (Client and Provider) */}
+            <Route path="/login" exact element={<LogIn />} />
+            <Route path="/signup" exact element={<SignUp />} />
 
-          {/* Specific Auth Routes: Client */}
-          <Route path="/signup/client" exact element={<ClientSignUp />} />
-          <Route path="/login/client" exact element={<ClientLogin />} />
+            {/* Specific Auth Routes: Client */}
+            <Route path="/signup/client" exact element={<ClientSignUp />} />
+            <Route path="/login/client" exact element={<ClientLogin />} />
 
-          {/* Specific Auth Routes Provider */}
-          <Route path="/signup/provider" exact element={<ProviderSignUp />} />
-          <Route path="/login/provider" exact element={<ProviderLogin />} />
+            {/* Specific Auth Routes Provider */}
+            <Route path="/signup/provider" exact element={<ProviderSignUp />} />
+            <Route path="/login/provider" exact element={<ProviderLogin />} />
 
-          {/* Authentication flow */}
-          <Route path="/auth/validate" exact element={<AuthFlow />} />
+            {/* Authentication flow */}
+            <Route path="/auth/validate" exact element={<AuthFlow />} />
 
-          {/* Auth validation */}
-          <Route path="/auth/validate/:id" exact element={<Validate />} />
+            {/* Auth validation */}
+            <Route path="/auth/validate/:id" exact element={<Validate />} />
 
-          <Route path="/forgot-password" exact element={<ForgotPassword />} />
-          <Route path="/reset-password" exact element={<Reset />} />
+            <Route path="/forgot-password" exact element={<ForgotPassword />} />
+            <Route path="/reset-password" exact element={<Reset />} />
 
-          {/* TODO: HELP CENTER ROUTES */}
-          <Route path="/help" element={<HelpLayout />}>
-            <Route index element={<HelpCenter />} />
-            {/* Customers */}
-            <Route path="customer" element={<Customer />} />
-            <Route path="customer/:id" element={<CustomerCategory />} />
+            {/* TODO: HELP CENTER ROUTES */}
+            <Route path="/help" element={<HelpLayout />}>
+              <Route index element={<HelpCenter />} />
+              {/* Customers */}
+              <Route path="customer" element={<Customer />} />
+              <Route path="customer/:id" element={<CustomerCategory />} />
 
-            {/* Provider */}
-            <Route path="provider" element={<Provider />} />
-            <Route path="provider/:id" element={<ProviderCategory />} />
+              {/* Provider */}
+              <Route path="provider" element={<Provider />} />
+              <Route path="provider/:id" element={<ProviderCategory />} />
 
-            {/* Articles */}
-            <Route path="article/:slug" element={<Article />} />
-          </Route>
+              {/* Articles */}
+              <Route path="article/:slug" element={<Article />} />
+            </Route>
 
-          {/* PAGE NOT FOUND */}
-          <Route path="*" exact element={<Notfound />} />
-        </Routes>
-      </AuthContextProvider>
+            {/* PAGE NOT FOUND */}
+            <Route path="*" exact element={<Notfound />} />
+          </Routes>
+        </AuthContextProvider>
+      </CookiesProvider>
     </BrowserRouter>
   );
 }
