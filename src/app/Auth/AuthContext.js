@@ -176,7 +176,7 @@ const AuthContextProvider = (props) => {
             // production code
             setCookie("user", JSON.stringify(res.data), {
               path: "/",
-              domain: "netlify.app",
+              domain: "*.netlify.app",
             });
           }
 

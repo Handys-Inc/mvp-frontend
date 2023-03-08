@@ -53,7 +53,7 @@ function Navbar({ variant, login, help = false }) {
         <Fragment>
           {currentUser ? (
             <div className="flex gap-4 items-center">
-              {currentUser.user.userAccess.includes("customer") ? (
+              {currentUser.userAccess.includes("customer") ? (
                 <a href={`${process.env.REACT_APP_CUSTOMER}`}>
                   Switch to customer portal
                 </a>
@@ -87,6 +87,7 @@ function Navbar({ variant, login, help = false }) {
                             {({ active }) => (
                               <a href={link.href}>
                                 <button
+                                  // log out functionality
                                   onClick={() => {
                                     if (link.label === "Logout") {
                                       logOut();
