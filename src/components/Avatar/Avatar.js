@@ -11,8 +11,8 @@ function Avatar() {
       {currentUser !== null && (
         <div className="w-10 h-10 rounded-full flex font-bold items-center justify-center bg-lightSecondary">
           <p>
-            {currentUser.user.firstName.split("")[0]}
-            {currentUser.user.lastName.split("")[0]}
+            {currentUser.firstName.split("")[0]}
+            {currentUser.lastName.split("")[0]}
           </p>
         </div>
       )}
