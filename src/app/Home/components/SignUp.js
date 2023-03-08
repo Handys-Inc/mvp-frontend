@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Auth/AuthContext";
+
+import Loader from "../../../utils/Loader";
 
 function SignUp() {
   const [email, setEmail] = useState("");
 
-  const navigate = useNavigate();
+  let { sendVerification, loading } = useContext(AuthContext);
 
   const validate = () => {
-    navigate(`/auth/provider/validate/${email}`, { replace: true });
+    sendVerification(email, "service");
   };
+
   return (
     <div className="pb-10 md:pb-0">
       <h2 className="text-3xl md:text-4xl font-semibold my-5 leading-normal">
@@ -31,10 +34,15 @@ function SignUp() {
           onClick={() => {
             validate();
           }}
-          disabled={email.length < 5}
+          disabled={
+            email.length < 4 ||
+            !email.includes("@") ||
+            !email.includes(".") ||
+            loading
+          }
           className="btn-primary absolute right-2 md:right-1"
         >
-          Sign Up
+          {loading ? <Loader /> : " Sign Up"}
         </button>
       </div>
     </div>

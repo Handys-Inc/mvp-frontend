@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
 
-import logo from "../../../../assets/logo/logo.svg";
+import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import FlowHeader from "./FlowHeader";
+
+import Loader from "../../../../utils/Loader";
+
+import { AuthContext } from "../../AuthContext";
 
 function Terms() {
+  let navigate = useNavigate();
+
+  let { signUp, loading } = useContext(AuthContext);
+
+  const [checked, setChecked] = useState(false);
+
   return (
     <div className="bg-lightGray h-screen">
-      <NavLink to="/">
-        <img className="mt-2 mx-2 w-20 md:w-28" src={logo} alt="logo" />
-      </NavLink>
+      <FlowHeader />
 
       <div className="auth-center">
         <div className="bg-lightGray md:bg-white md:shadow-md w-full md:w-[38rem] rounded-2xl md:p-10 p-2">
@@ -26,23 +35,37 @@ function Terms() {
             <NavLink to="/privacy-notice">
               <span className="text-primary font-bold">Privacy Notice</span>{" "}
             </NavLink>
-            . I am at least 18 years of age.
+            .I am at least 18 years of age.
           </p>
-          <div>
+          <div className="my-5">
             <hr className="text-gray" />
-            <div className="flex justify-between mt-2">
+            <div className="flex justify-between my-5">
               <p>Agree</p>
               <div>
-                <input type="checkbox" />
+                <input
+                  checked={checked}
+                  onChange={() => setChecked(!checked)}
+                  type="checkbox"
+                />
               </div>
             </div>
           </div>
           <div className="flex justify-between mt-5">
-            <button className="btn-primary-outline">
+            <button
+              onClick={() => navigate(-1)}
+              className="btn-primary-outline"
+            >
               <BsArrowLeft className="mr-2 inline-block" />
               Back{" "}
             </button>
-            <button className="btn-primary ">Finish</button>
+
+            <button
+              onClick={() => signUp()}
+              disabled={!checked || loading}
+              className="btn-primary "
+            >
+              {loading ? <Loader /> : "Finish"}
+            </button>
           </div>
         </div>
       </div>

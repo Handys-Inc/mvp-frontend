@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useContext } from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
+
+import Loader from "../../../utils/Loader";
 
 // icons
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
 
 function ProviderLogin() {
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  let { loginWithEmailAndPass, loading } = useContext(AuthContext);
+
+  const login = () => {
+    //
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    loginWithEmailAndPass(email, password, "provider");
+  };
 
   return (
     <div className="bg-lightGray h-screen">
@@ -24,11 +39,11 @@ function ProviderLogin() {
           {/* details */}
           <div className="my-5">
             <input
+              ref={emailRef}
               type="text"
               placeholder="Enter your email or phone number"
               className="auth-input "
             />
-
             <div className="relative mt-5 mb-3">
               <span
                 className="text-gray absolute cursor-pointer right-4 mt-4 ml-5"
@@ -38,19 +53,25 @@ function ProviderLogin() {
               </span>
 
               <input
+                ref={passwordRef}
                 className="auth-input"
                 type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 autoComplete="off"
               />
             </div>
-
             <NavLink to="/forgot-password">
               <span className="text-sm text-primary cursor-pointer">
                 Forgot Password?
               </span>
             </NavLink>
-            <button className="btn-primary w-full mt-5">Log In</button>
+            <button
+              onClick={() => login()}
+              disabled={loading}
+              className="btn-primary w-full mt-5"
+            >
+              {loading ? <Loader /> : "Log In"}
+            </button>{" "}
           </div>
         </div>
       </div>
