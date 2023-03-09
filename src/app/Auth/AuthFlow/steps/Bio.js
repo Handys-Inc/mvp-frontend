@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
@@ -14,8 +14,6 @@ function Bio() {
 
   let { firstName, setFirstName, lastName, setLastName } =
     useContext(AuthContext);
-
-
 
   return (
     <div className="bg-lightGray h-screen">

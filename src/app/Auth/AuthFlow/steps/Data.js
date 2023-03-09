@@ -13,6 +13,7 @@ function Data() {
 
   let { email, setEmail, phone, setPhone } = useContext(AuthContext);
 
+  console.log("phone", phone, email);
   return (
     <div className="bg-lightGray h-screen">
       <FlowHeader />
@@ -52,11 +53,20 @@ function Data() {
               <BsArrowLeft className="mr-2 inline-block" />
               Back{" "}
             </button>
-            <NavLink to="/auth/validate?step=3">
-              <button className="btn-primary ">
-                Next <BsArrowRight className="ml-2 inline-block" />
-              </button>
-            </NavLink>
+
+            {email === null ? (
+              <NavLink to="/auth/validate?step=3">
+                <button disabled={email === undefined} className="btn-primary ">
+                  Next <BsArrowRight className="ml-2 inline-block" />
+                </button>
+              </NavLink>
+            ) : (
+              <NavLink to="/auth/validate?step=3">
+                <button disabled={phone === undefined} className="btn-primary ">
+                  Next <BsArrowRight className="ml-2 inline-block" />
+                </button>
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

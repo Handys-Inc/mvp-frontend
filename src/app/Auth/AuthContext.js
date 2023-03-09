@@ -5,6 +5,7 @@ import { useCookies } from "react-cookie";
 import services from "../../services";
 import Notify from "../../components/Notify/Notify";
 import { useNavigate } from "react-router-dom";
+import { resetPassword } from "../../services/user/userService";
 
 export const AuthContext = createContext();
 
@@ -83,6 +84,20 @@ const AuthContextProvider = (props) => {
       // it is a PHONE NUMBER
       setLoading(true);
       setPhone(entry);
+      const phoneNumber = entry;
+      services
+        .verifyPhone(phoneNumber)
+        .then((res) => {
+          setLoading(false);
+          Notify("info", res.data.message);
+          navigate(`/auth/validate?step=1`, { state: entry });
+          console.log("phone number res", res.data);
+        })
+        .catch((e) => {
+          setLoading(false);
+          Notify("error", "Error occured, Please try again");
+          console.log("error", e);
+        });
     }
   };
 
@@ -111,7 +126,9 @@ const AuthContextProvider = (props) => {
       .then((res) => {
         setLoading(false);
         Notify("success", "Signed up successfully");
-        Notify("info", "Redirecting...");
+
+        // clear session
+        sessionStorage.clear();
 
         // store into local storage
         setCookie("user", JSON.stringify(res.data), {
@@ -152,6 +169,20 @@ const AuthContextProvider = (props) => {
           Notify("error", e.response.data);
         });
     }
+  };
+
+  const resetUserPassword = (password, passwordResetToken) => {
+    setLoading(true);
+    resetPassword(password, passwordResetToken)
+      .then((res) => {
+        setLoading(false);
+        console.log("restting password", res);
+      })
+      .catch((e) => {
+        setLoading(false);
+        Notify("error", e.response.data);
+        console.log("error", e);
+      });
   };
 
   const loginWithEmailAndPass = (email, password, userAccess) => {
@@ -207,6 +238,7 @@ const AuthContextProvider = (props) => {
   return (
     <AuthContext.Provider
       value={{
+        resetUserPassword,
         logOut,
         currentUser,
         email,

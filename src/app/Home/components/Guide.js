@@ -1,5 +1,7 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
 import man from "../../../assets/img/man.png";
 import city from "../../../assets/img/city.png";
 
@@ -23,9 +25,11 @@ function Guide() {
           app. Plus, you can build a strong reputation and earn fair payment for
           your hard work.
         </p>
-        <button className="mt-10 text-primary font-semibold">
-          Read Help Guide <BsArrowRight className="ml-2 inline-block" />
-        </button>
+        <NavLink to="/help">
+          <button className="mt-10 text-primary font-semibold">
+            Read Help Guide <BsArrowRight className="ml-2 inline-block" />
+          </button>
+        </NavLink>
       </div>
       <div>
         {viewCities ? (
