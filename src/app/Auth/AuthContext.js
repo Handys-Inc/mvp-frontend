@@ -5,6 +5,7 @@ import { useCookies } from "react-cookie";
 import services from "../../services";
 import Notify from "../../components/Notify/Notify";
 import { useNavigate } from "react-router-dom";
+import { resetPassword } from "../../services/user/userService";
 
 export const AuthContext = createContext();
 
@@ -170,6 +171,20 @@ const AuthContextProvider = (props) => {
     }
   };
 
+  const resetUserPassword = (password, passwordResetToken) => {
+    setLoading(true);
+    resetPassword(password, passwordResetToken)
+      .then((res) => {
+        setLoading(false);
+        console.log("restting password", res);
+      })
+      .catch((e) => {
+        setLoading(false);
+        Notify("error", e.response.data);
+        console.log("error", e);
+      });
+  };
+
   const loginWithEmailAndPass = (email, password, userAccess) => {
     if (email.length < 4 || password.length < 4) {
       Notify("info", "Please check information entered");
@@ -223,6 +238,7 @@ const AuthContextProvider = (props) => {
   return (
     <AuthContext.Provider
       value={{
+        resetUserPassword,
         logOut,
         currentUser,
         email,

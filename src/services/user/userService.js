@@ -86,3 +86,16 @@ export const sendPasswordReset = (email) => {
     headers: headers,
   });
 };
+
+export const resetPassword = (password, passwordResetToken) => {
+  const data = JSON.stringify({
+    password,
+    passwordResetToken,
+  });
+  return axios({
+    method: "POST",
+    url: `${baseURL}/reset-password`,
+    data: data,
+    headers: headers,
+  });
+};

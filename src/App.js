@@ -74,7 +74,7 @@ function App() {
             <Route path="/auth/validate/:id" exact element={<Validate />} />
 
             <Route path="/forgot-password" exact element={<ForgotPassword />} />
-            <Route path="/reset-password" exact element={<Reset />} />
+            <Route path="/reset-password/:id" exact element={<Reset />} />
 
             {/* TODO: HELP CENTER ROUTES */}
             <Route path="/help" element={<HelpLayout />}>
