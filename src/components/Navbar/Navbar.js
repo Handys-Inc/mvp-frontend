@@ -59,7 +59,7 @@ function Navbar({ variant, login, help = false }) {
                 </a>
               ) : (
                 <a href={`${process.env.REACT_APP_PROVIDER}`}>
-                  Switch to customer portal
+                  Switch to provider portal
                 </a>
               )}
               {/* MENU */}

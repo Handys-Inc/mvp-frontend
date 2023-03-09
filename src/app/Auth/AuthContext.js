@@ -83,6 +83,20 @@ const AuthContextProvider = (props) => {
       // it is a PHONE NUMBER
       setLoading(true);
       setPhone(entry);
+      const phoneNumber = entry;
+      services
+        .verifyPhone(phoneNumber)
+        .then((res) => {
+          setLoading(false);
+          Notify("info", res.data.message);
+          navigate(`/auth/validate?step=1`, { state: entry });
+          console.log("phone number res", res.data);
+        })
+        .catch((e) => {
+          setLoading(false);
+          Notify("error", "Error occured, Please try again");
+          console.log("error", e);
+        });
     }
   };
 
@@ -111,7 +125,9 @@ const AuthContextProvider = (props) => {
       .then((res) => {
         setLoading(false);
         Notify("success", "Signed up successfully");
-        Notify("info", "Redirecting...");
+
+        // clear session
+        sessionStorage.clear();
 
         // store into local storage
         setCookie("user", JSON.stringify(res.data), {

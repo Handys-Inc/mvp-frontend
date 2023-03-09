@@ -29,6 +29,18 @@ export const verifyEmail = (email) => {
   });
 };
 
+export const verifyPhone = (phoneNumber) => {
+  const data = JSON.stringify({
+    phoneNumber,
+  });
+  return axios({
+    method: "POST",
+    url: `${baseURL}/verify-number`,
+    data: data,
+    headers: headers,
+  });
+};
+
 export const verifyOTP = (code) => {
   const data = JSON.stringify({
     verificationToken: code,
