@@ -133,6 +133,7 @@ const AuthContextProvider = (props) => {
         // store into local storage
         setCookie("user", JSON.stringify(res.data), {
           path: "/",
+          domain: "handys.ca",
         });
         setTimeout(() => {
           if (userAccess === "customer") {
@@ -141,7 +142,7 @@ const AuthContextProvider = (props) => {
           if (userAccess === "service") {
             window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
           }
-        }, 2000);
+        }, 20000);
 
         console.log("signiing up", res);
       })
