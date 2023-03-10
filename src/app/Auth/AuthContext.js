@@ -133,7 +133,7 @@ const AuthContextProvider = (props) => {
         // store into local storage
         setCookie("user", JSON.stringify(res.data), {
           path: "/",
-          domain: "handys.ca",
+          domain: "*.handys.ca",
         });
         setTimeout(() => {
           if (userAccess === "customer") {
@@ -208,7 +208,7 @@ const AuthContextProvider = (props) => {
             // production code
             setCookie("user", JSON.stringify(res.data), {
               path: "/",
-              domain: "*.netlify.app",
+              domain: "*.handys.ca",
             });
           }
 
