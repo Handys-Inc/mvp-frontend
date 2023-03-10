@@ -29,6 +29,18 @@ export const verifyEmail = (email) => {
   });
 };
 
+export const verifyPhone = (phoneNumber) => {
+  const data = JSON.stringify({
+    phoneNumber,
+  });
+  return axios({
+    method: "POST",
+    url: `${baseURL}/verify-number`,
+    data: data,
+    headers: headers,
+  });
+};
+
 export const verifyOTP = (code) => {
   const data = JSON.stringify({
     verificationToken: code,
@@ -70,6 +82,19 @@ export const sendPasswordReset = (email) => {
   return axios({
     method: "POST",
     url: `${baseURL}/forgot-password`,
+    data: data,
+    headers: headers,
+  });
+};
+
+export const resetPassword = (password, passwordResetToken) => {
+  const data = JSON.stringify({
+    password,
+    passwordResetToken,
+  });
+  return axios({
+    method: "POST",
+    url: `${baseURL}/reset-password`,
     data: data,
     headers: headers,
   });

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import Navbar from "../../../components/Navbar/Navbar";
 
@@ -9,6 +9,14 @@ import WandIcon from "../../../assets/icons/svg/WandIcon";
 import { NavLink } from "react-router-dom";
 
 function SignUp() {
+  React.useEffect(() => {
+    // clear session storage at start of the sign up process
+    let newUser = sessionStorage.getItem("newUser");
+    sessionStorage.setItem(
+      "newUser",
+      JSON.stringify({ ...newUser, email: null, phone: null })
+    );
+  }, []);
   return (
     <div className="bg-lightGray h-screen">
       <Navbar variant={true} login={true} />
