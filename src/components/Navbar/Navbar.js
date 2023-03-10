@@ -83,9 +83,24 @@ function Navbar({ variant, login, help = false }) {
                     <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <div className="px-1 py-1 ">
                         {links.map((link) => (
-                          <Menu.Item key={link.href} as="div">
+                          <Menu.Item
+                            onClick={() => {
+                              if (link.label === "Logout") {
+                                logOut();
+                              }
+                            }}
+                            key={link.href}
+                            as="div"
+                          >
                             {({ active }) => (
-                              <a href={link.href}>
+                              <a
+                                onClick={() => {
+                                  if (link.label === "Logout") {
+                                    logOut();
+                                  }
+                                }}
+                                href={link.href}
+                              >
                                 <button
                                   // log out functionality
                                   onClick={() => {
