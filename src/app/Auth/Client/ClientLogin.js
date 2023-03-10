@@ -12,6 +12,8 @@ import Loader from "../../../utils/Loader";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 
+// client login
+
 function ClientLogin() {
   // password handling
   const [passwordShown, setPasswordShown] = useState(false);
@@ -25,6 +27,8 @@ function ClientLogin() {
     //
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+
+    console.log("logging in")
     loginWithEmailAndPass(email, password, "customer");
   };
 
