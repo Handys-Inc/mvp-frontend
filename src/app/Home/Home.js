@@ -14,13 +14,17 @@ import Guide from "./components/Guide";
 function Home() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
+
+      <div className="w-full mx-auto">
+        Handys
+        </div>
 
       {/* Header */}
-      <Header />
+      {/* <Header /> */}
 
       {/* Features  */}
-      <div className="bg-secondary flex flex-col md:flex-row justify-start md:justify-around px-20 py-5 md:py-20 items-center">
+      {/* <div className="bg-secondary flex flex-col md:flex-row justify-start md:justify-around px-20 py-5 md:py-20 items-center">
         <div className="w-96 px-3 md:px-0">
           <div className="feature-icon">
             <img src={crown} alt="quality service" />
@@ -49,16 +53,16 @@ function Home() {
             Get your home and work projects completed with a few clicks
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Guide */}
-      <Guide />
+      {/* <Guide /> */}
 
       {/* CTA */}
-      <CTA />
+      {/* <CTA /> */}
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
