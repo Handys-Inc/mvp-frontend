@@ -209,7 +209,8 @@ const AuthContextProvider = (props) => {
             console.log("prod cookie running");
             setCookie("user", JSON.stringify(res.data), {
               path: "/",
-              domain: "*.handys.ca",
+              domain: ".handys.ca",
+              secure: true,
             });
           }
 
@@ -221,7 +222,6 @@ const AuthContextProvider = (props) => {
           //     window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
           //   }
           // }, 1000);
-
         })
         .catch((e) => {
           setLoading(false);
