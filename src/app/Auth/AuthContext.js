@@ -131,10 +131,19 @@ const AuthContextProvider = (props) => {
         sessionStorage.clear();
 
         // store into local storage
-        setCookie("user", JSON.stringify(res.data), {
-          path: "/",
-          domain: "*.handys.ca",
-        });
+        if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+          // dev code
+          setCookie("user", JSON.stringify(res.data), {
+            path: "/",
+          });
+        } else {
+          // production code
+          setCookie("user", JSON.stringify(res.data), {
+            path: "/",
+            domain: ".handys.ca",
+            secure: true,
+          });
+        }
         setTimeout(() => {
           if (userAccess === "customer") {
             window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
@@ -206,7 +215,6 @@ const AuthContextProvider = (props) => {
             });
           } else {
             // production code
-            console.log("prod cookie running");
             setCookie("user", JSON.stringify(res.data), {
               path: "/",
               domain: ".handys.ca",
@@ -214,14 +222,14 @@ const AuthContextProvider = (props) => {
             });
           }
 
-          // setTimeout(() => {
-          //   if (userAccess === "customer") {
-          //     window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
-          //   }
-          //   if (userAccess === "provider") {
-          //     window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
-          //   }
-          // }, 1000);
+          setTimeout(() => {
+            if (userAccess === "customer") {
+              window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
+            }
+            if (userAccess === "provider") {
+              window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
+            }
+          }, 1000);
         })
         .catch((e) => {
           setLoading(false);
