@@ -206,6 +206,7 @@ const AuthContextProvider = (props) => {
             });
           } else {
             // production code
+            console.log("prod cookie running");
             setCookie("user", JSON.stringify(res.data), {
               path: "/",
               domain: "*.handys.ca",
