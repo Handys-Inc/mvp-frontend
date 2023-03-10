@@ -213,14 +213,15 @@ const AuthContextProvider = (props) => {
             });
           }
 
-          setTimeout(() => {
-            if (userAccess === "customer") {
-              window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
-            }
-            if (userAccess === "provider") {
-              window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
-            }
-          }, 1000);
+          // setTimeout(() => {
+          //   if (userAccess === "customer") {
+          //     window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
+          //   }
+          //   if (userAccess === "provider") {
+          //     window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
+          //   }
+          // }, 1000);
+
         })
         .catch((e) => {
           setLoading(false);
