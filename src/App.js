@@ -38,6 +38,23 @@ import { CookiesProvider } from "react-cookie";
 import { ProtectedRoutes } from "./routes/ProtectedRoutes";
 
 function App() {
+      const authenticate = () => {
+    return new Promise((resolve) => setTimeout(resolve, 1000)); // 2 seconds
+  };
+
+ React.useEffect(() => {
+    authenticate().then(() => {
+      const ele = document.getElementById("ipl-progress-indicator");
+      if (ele) {
+        // fade out
+        ele.classList.add("available");
+        setTimeout(() => {
+          // remove from DOM
+          ele.outerHTML = "";
+        }, 2000);
+      }
+    });
+  }, []);
   return (
     <BrowserRouter>
       <ToastContainer
