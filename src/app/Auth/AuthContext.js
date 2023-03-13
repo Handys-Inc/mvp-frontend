@@ -151,7 +151,7 @@ const AuthContextProvider = (props) => {
           if (userAccess === "service") {
             window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
           }
-        }, 20000);
+        }, 2000);
 
         console.log("signiing up", res);
       })
@@ -186,6 +186,9 @@ const AuthContextProvider = (props) => {
     resetPassword(password, passwordResetToken)
       .then((res) => {
         setLoading(false);
+        Notify("success", "Password has been reset");
+        Notify("info", "Log In");
+         navigate(`/login`);
         console.log("restting password", res);
       })
       .catch((e) => {
@@ -241,7 +244,7 @@ const AuthContextProvider = (props) => {
   // deleting/destroying user details upon logout
   const logOut = () => {
     removeCookie("user");
-    sessionStorage.clear()
+    sessionStorage.clear();
     localStorage.clear();
     window.location.reload();
     return false;
@@ -254,6 +257,7 @@ const AuthContextProvider = (props) => {
         logOut,
         currentUser,
         email,
+        phone,
         firstName,
         lastName,
         setFirstName,

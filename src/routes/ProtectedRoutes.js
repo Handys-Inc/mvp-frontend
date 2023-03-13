@@ -17,14 +17,14 @@ export const ProtectedRoutes = () => {
 
   const setPwd = () => {
     setLoading(true);
-    sessionStorage.setItem("pwd", passwordRef.current.value);
+    localStorage.setItem("pwd", passwordRef.current.value);
     setTimeout(() => {
       setLoading(false);
     }, 2000);
   };
 
   useEffect(() => {
-    const dataFromSession = sessionStorage.getItem("pwd") || "";
+    const dataFromSession = localStorage.getItem("pwd") || "";
     if (dataFromSession === "h@ndysb3t@1") {
       setAuthed(true);
     }
