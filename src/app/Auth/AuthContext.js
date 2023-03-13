@@ -241,6 +241,7 @@ const AuthContextProvider = (props) => {
   // deleting/destroying user details upon logout
   const logOut = () => {
     removeCookie("user");
+    sessionStorage.clear()
     localStorage.clear();
     window.location.reload();
     return false;
