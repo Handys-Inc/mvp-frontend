@@ -151,7 +151,7 @@ const AuthContextProvider = (props) => {
           if (userAccess === "service") {
             window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
           }
-        }, 20000);
+        }, 2000);
 
         console.log("signiing up", res);
       })
