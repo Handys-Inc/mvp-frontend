@@ -204,7 +204,7 @@ const AuthContextProvider = (props) => {
     } else {
       setLoading(true);
       services
-        .login(email, password)
+        .login(email, password, userAccess)
         .then((res) => {
           setLoading(false);
 
@@ -229,7 +229,7 @@ const AuthContextProvider = (props) => {
             if (userAccess === "customer") {
               window.open(`${process.env.REACT_APP_CUSTOMER}`, "_self");
             }
-            if (userAccess === "provider") {
+            if (userAccess === "service") {
               window.open(`${process.env.REACT_APP_PROVIDER}`, "_self");
             }
           }, 1000);

@@ -4,10 +4,11 @@ const baseURL = `${process.env.REACT_APP_BASE_URL}/api/users`;
 
 const headers = { "Content-Type": "application/json" };
 
-export const login = (email, password) => {
+export const login = (email, password, userAccess) => {
   const data = JSON.stringify({
     email,
     password,
+    userAccess
   });
   return axios({
     method: "POST",

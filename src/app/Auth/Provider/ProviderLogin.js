@@ -23,7 +23,7 @@ function ProviderLogin() {
     //
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    loginWithEmailAndPass(email, password, "provider");
+    loginWithEmailAndPass(email, password, "service");
   };
 
   return (
