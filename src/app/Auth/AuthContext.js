@@ -254,6 +254,7 @@ const AuthContextProvider = (props) => {
         logOut,
         currentUser,
         email,
+        phone,
         firstName,
         lastName,
         setFirstName,
